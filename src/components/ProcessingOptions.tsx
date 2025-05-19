@@ -42,7 +42,7 @@ const ProcessingOptions: React.FC<ProcessingOptionsProps> = ({
               checked={options.suggestFaceShots}
               onCheckedChange={() => handleCheckboxChange('suggestFaceShots')}
             />
-            <Label htmlFor="suggestFaceShots">Suggest Face Shots (based on speaker)</Label>
+            <Label htmlFor="suggestFaceShots">Suggest Face Shots</Label>
           </div>
           
           <div className="flex items-center space-x-2">

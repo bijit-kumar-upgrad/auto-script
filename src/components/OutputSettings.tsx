@@ -16,14 +16,14 @@ const OutputSettings: React.FC<OutputSettingsProps> = ({
   return (
     <Card className="bg-gray-50">
       <CardContent className="pt-6">
-        <h2 className="text-xl font-semibold mb-2">Output Settings</h2>
+        <h2 className="text-xl font-semibold mb-2">Output File</h2>
         <p className="text-sm text-gray-500 mb-4">
-          Configure the generated Google Doc.
+          Configure the generated document.
         </p>
         
         <div className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="docTitle">Google Doc Title</Label>
+            <Label htmlFor="docTitle">Document Title</Label>
             <Input
               id="docTitle"
               placeholder="e.g., 'PPS: MSFT for Developers M1'"
