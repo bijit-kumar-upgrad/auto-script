@@ -29,11 +29,13 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data }) => {
                   item.pps.description.map((desc, idx) => (
                     <div key={idx} className="mb-4">
                       <h4 className="font-semibold">{desc.point}</h4>
-                      <ul className="list-disc pl-6">
-                        {desc.subpoints.map((subpoint, subIdx) => (
-                          <li key={subIdx}>{subpoint}</li>
-                        ))}
-                      </ul>
+                      {desc.subpoints && Array.isArray(desc.subpoints) && desc.subpoints.length > 0 ? (
+                        <ul className="list-disc pl-6">
+                          {desc.subpoints.map((subpoint, subIdx) => (
+                            <li key={subIdx}>{subpoint}</li>
+                          ))}
+                        </ul>
+                      ) : null}
                     </div>
                   ))
                 ) : (
