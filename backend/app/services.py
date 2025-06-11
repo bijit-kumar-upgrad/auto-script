@@ -1,6 +1,4 @@
 import os
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.inference import ChatCompletionsClient
 from fastapi import HTTPException
 from .config import BASE_URL, MODEL, GITHUB_TOKEN
 from openai import OpenAI
@@ -8,7 +6,7 @@ from openai import OpenAI
 # Function to get the AI response
 def get_ai_response(input_script) -> str:
     try:
-        # Initialize the Azure ChatCompletionsClient
+        # Initialize the ChatCompletionsClient
         client = OpenAI(base_url=BASE_URL, api_key=GITHUB_TOKEN)
 
         # Get the current directory of this script

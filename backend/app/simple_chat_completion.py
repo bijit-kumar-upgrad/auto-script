@@ -2,11 +2,6 @@ import os
 from openai import OpenAI
 from config import BASE_URL, MODEL, GITHUB_TOKEN
 from docx import Document  # Import the library to handle .docx files
-#from markdowntodocx import convertMarkdownInFile
-from Markdown2docx import Markdown2docx
-import markdown
-from html.parser import HTMLParser
-from bs4 import BeautifulSoup
 
 # Get the current directory of this script
 current_dir = os.path.dirname(__file__)
