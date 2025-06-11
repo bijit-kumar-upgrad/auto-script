@@ -1,0 +1,20 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore Python virtual environment folder
+.venv/
+
+# Ignore npm lock files (if you don't want them tracked)
+package-lock.json
+
+# Ignore OS-generated files
+Thumbs.db  # For Windows
+
+# Ignore log files
+*.log
+
+backend/app/__pycache__/
+backend/.env
+
+# Ignore frontend files
+frontend/node_modules/
