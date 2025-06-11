@@ -22,7 +22,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelected }) => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:8000/api/upload', formData, {
+      const response = await axios.post('https://auto-script.onrender.com/api/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
