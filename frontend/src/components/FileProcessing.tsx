@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/sonner";
 import axios from 'axios';
 import ProcessedTable from "./ProcessedTable";
+import { API_URL } from "@/ApiConfig";
 
 interface FileProcessingProps {
   file: File | null;
@@ -37,7 +38,7 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
       formData.append('file', file);
 
       // Send the file to the backend for processing (assuming you have an endpoint /api/process)
-      const response = await axios.post('http://localhost:8000/api/process-transcript', formData, {
+      const response = await axios.post(`${API_URL}/api/process-transcript`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 

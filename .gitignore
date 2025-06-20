@@ -13,8 +13,10 @@ Thumbs.db  # For Windows
 # Ignore log files
 *.log
 
+# Ignore backend files
 backend/app/__pycache__/
 backend/.env
+backend/app/simple_chat_completion.py
 
 # Ignore frontend files
 frontend/node_modules/

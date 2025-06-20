@@ -1,6 +1,4 @@
 import os
-from azure.core.credentials import AzureKeyCredential
-from azure.ai.inference import ChatCompletionsClient
 from fastapi import HTTPException
 from .config import BASE_URL, MODEL, GITHUB_TOKEN
 from openai import OpenAI
@@ -8,7 +6,7 @@ from openai import OpenAI
 # Function to get the AI response
 def get_ai_response(input_script) -> str:
     try:
-        # Initialize the Azure ChatCompletionsClient
+        # Initialize the OpenAI chat completions client
         client = OpenAI(base_url=BASE_URL, api_key=GITHUB_TOKEN)
 
         # Get the current directory of this script
@@ -33,17 +31,22 @@ def get_ai_response(input_script) -> str:
                 "Create a pps based on the script provided here:" + input_script +
                 "Please provide the output in JSON format only. Ensure that the output follows the provided guideline. Do not include any introductory text, conclusion, or follow-up questions."
                 "Focus solely on the content, including any necessary headings, lists, and tables, without additional commentary or explanations. "
-                "Use only normal UTF-8 characters — avoid using quotations, emojis, or any special characters. "
-                "Ensure the JSON response matches the following structure:\n"
+                "Use only normal UTF-8 characters and avoid using quotations, emojis, or any special characters. "
+                "Ensure the JSON response strictly matches the following structure:\n"
                 "[\n"
                 "  {\n"
                 "    \"script_block\": \"string\",\n"
                 "    \"pps\": {\n"
-                "      \"plate_type\": \"string\",\n"
-                "      \"description\": \"string or Array of objects with 'point' and 'subpoints' properties\"\n"
+                "    \"plate_type\": \"string\",\n"
+                "       \"content\": {\n"
+                "           \"heading\": \"string\", // Optional depending on template\n"
+                "           \"subheading\": \"string\", // Optional depending on template\n"
+                "           \"body\": \"string or Array of objects with 'point' and 'subpoints' properties\"\n"
+                "       }\n"
                 "    }\n"
                 "  }\n"
                 "]"
+                "plate_type is the plate number and template being used, in this format: Plate #, Template #. Here Plate number is the indicates the sequence of the plate"
             )}
             ]
         )

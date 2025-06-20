@@ -1,24 +1,14 @@
-# Welcome to your Lovable project
+# Auto Script Frontend
 
-## Project info
+## Project Info
 
-**URL**: https://lovable.dev/projects/38714434-b643-4541-96ca-04c003e1e2a1
+This is the frontend for the Auto Script project.
 
 ## How can I edit this code?
 
-There are several ways of editing your application.
+You can work locally using your preferred IDE. To get started:
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/38714434-b643-4541-96ca-04c003e1e2a1) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+The only requirement is having Node.js & npm installed – [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 
 Follow these steps:
 
@@ -62,12 +52,14 @@ This project is built with:
 
 ## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/38714434-b643-4541-96ca-04c003e1e2a1) and click on Share -> Publish.
+Deployment instructions depend on your hosting provider. Common options include Vercel, Netlify, or your own server. Build the project with:
 
-## Can I connect a custom domain to my Lovable project?
+```sh
+npm run build
+```
 
-Yes, you can!
+Then follow your provider's instructions to deploy the contents of the `dist` folder.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## Can I connect a custom domain?
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Yes, most hosting providers allow you to connect a custom domain. Refer to your provider's documentation for details.

@@ -55,23 +55,24 @@ const Index = () => {
       
       <main className="flex-1 flex flex-col">
         <div className="container max-w-6xl mx-auto py-8">
+          <h1 className="text-4xl font-bold text-center mb-8">Auto Script</h1>
           <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-            <h1 className="text-4xl font-bold text-center mb-8">Auto Script</h1>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-8">
+            <div className="space-y-8">
+              <div>
                 <FileUpload onFileSelected={handleFileSelected} />
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <ProcessingOptions 
                   options={options}
                   onOptionsChange={setOptions}
                 />
-              </div>
-
-              <div>
-                <OutputSettings
-                  docTitle={docTitle}
-                  onDocTitleChange={setDocTitle}
-                />
+                <div>
+                  <OutputSettings
+                    docTitle={docTitle}
+                    onDocTitleChange={setDocTitle}
+                  />
+                </div>
               </div>
             </div>
 

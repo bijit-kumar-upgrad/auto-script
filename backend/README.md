@@ -1,6 +1,6 @@
 # FastAPI Chat API
 
-This project is a FastAPI application that provides a chat interface using the GitHub AI inference endpoint. It allows users to send messages and receive AI-generated responses.
+This is a FastAPI backend service that send requests to the GitHub AI inference endpoint. It allows users to send messages and receive AI-generated responses.
 
 ## Project Structure
 
@@ -8,7 +8,6 @@ This project is a FastAPI application that provides a chat interface using the G
 backend/
 ├── app/
 │   ├── main.py           # FastAPI app entrypoint with /api/chat POST endpoint
-│   ├── schemas.py        # Pydantic models for request and response
 │   ├── services.py       # Service layer to call GitHub AI inference endpoint using OpenAI SDK
 │   └── config.py         # Load environment variables for GITHUB_TOKEN and API endpoint
 ├── requirements.txt      # List of Python dependencies: fastapi, uvicorn, openai
