@@ -45,6 +45,9 @@ You will assist in creating Post-Production Scripts (PPS) for educational videos
 
 **Purpose:** Keeps the learner connected to the speaker and avoids overloading visuals.
 **Common placement:** Mid-segment or between dense content blocks.
+**Structure:**
+- Label as: Faceshot
+- Doesn't need aything else in the body, should be kept empty.
 
 ### Custom or Non-Template Graphic Plates
 **When to use:**
@@ -82,11 +85,10 @@ You will assist in creating Post-Production Scripts (PPS) for educational videos
 
 1. The final output must be a document with 2 columns and multiple rows
 2. Each script block should be in a row on the left, and the PPS for it should be on a row in the right
-3. All text that is supposed to be in the final video MUST be in **bold**
-4. Include the ENTIRE script wording in the script block (not truncated with "...")
-5. Any stories or case studies should be an OG plate or left blank to be filled later
-6. Step and process plates CANNOT have just one point in a plate - NO plate should have just one point
-7. In cases where there would be only one point, combine script blocks
+3. Include the ENTIRE script wording in the script block (not truncated with "...")
+4. Any stories or case studies should be an OG plate or left blank to be filled later
+5. Step and process plates CANNOT have just one point in a plate - NO plate should have just one point
+6. In cases where there would be only one point, combine script blocks
 
 ## Template Formatting Instructions
 
@@ -446,6 +448,5 @@ Before submitting your PPS:
 1. Ensure proper use of Title Case and Sentence Case formatting
 2. Confirm that no plate has a single point
 3. Verify that script blocks contain the full text, not truncated versions
-4. Check that all text meant for the final PPS output is in **bold**
-5. Ensure appropriate template selection for each content segment
-6. Alternate between OG plates and speaker plates to maintain engagement
+4. Ensure appropriate template selection for each content segment
+5. Alternate between OG plates and speaker plates to maintain engagement

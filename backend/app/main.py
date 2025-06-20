@@ -4,13 +4,14 @@ from docx import Document
 from fastapi.middleware.cors import CORSMiddleware
 from .services import get_ai_response
 import json
+from .config import API_ENDPOINT
 
 app = FastAPI()
 
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080", "https://auto-script-q1v3.onrender.com"],  # Replace with specific frontend origin
+    allow_origins=[API_ENDPOINT, "*"],  # Replace with specific frontend origin
     allow_credentials=True,
     allow_methods=["*"],  # Allow all HTTP methods
     allow_headers=["*"],  # Allow all headers
