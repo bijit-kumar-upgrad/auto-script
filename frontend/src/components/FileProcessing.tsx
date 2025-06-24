@@ -4,6 +4,8 @@ import { toast } from "@/components/ui/sonner";
 import axios from 'axios';
 import ProcessedTable from "./ProcessedTable";
 import { API_URL } from "@/ApiConfig";
+import { set } from "date-fns";
+import ProcessedFile from "./ProcessedFile";
 
 interface FileProcessingProps {
   file: File | null;
@@ -23,6 +25,7 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
   setIsProcessing,
 }) => {
   const [tableData, setTableData] = useState<any[]>([]); // For storing the OpenAI response data
+  const [modifiedRows, setModifiedRows] = useState<any[]>([]); // For storing modified rows
 
   const handleProcessTranscript = async () => {
     if (!file) {
@@ -37,7 +40,7 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
       const formData = new FormData();
       formData.append('file', file);
 
-      // Send the file to the backend for processing (assuming you have an endpoint /api/process)
+      // Send the file to the backend for processing
       const response = await axios.post(`${API_URL}/api/process-transcript`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
@@ -56,7 +59,9 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
           tableContent = [];
         }
       }
+
       setTableData(tableContent); // Set the table data here
+      setModifiedRows([]); // Reset modified rows
       setIsProcessed(true);
       toast.success("Transcript processed successfully");
     } catch (error) {
@@ -64,6 +69,21 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
       toast.error("Failed to process transcript");
     } finally {
       setIsProcessing(false);
+    }
+  };
+
+  const handleResend = async () => {
+    if (modifiedRows.length === 0) {
+      toast("No changes to send");
+      return;
+    }
+    
+    try {
+      // Resend the modified rows data to the backend for processing
+      await axios.post(`${API_URL}/api/update-templates`, modifiedRows);
+    } catch (err) {
+      console.error("Failed to send changes:", err);
+      toast.error("Error sending changes");
     }
   };
 
@@ -84,7 +104,37 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
 
       {/* Render the table only after processing is successful */}
       {tableData.length > 0 && (
-        <ProcessedTable data={tableData} />
+        <>
+          {/* Render the processed file download link */}
+          <ProcessedFile 
+            title={
+              docTitle?.trim() !== ""
+                ? `${docTitle}.docx`
+                : file?.name
+                  ? `PPS: ${file.name.split('.')[0]}.docx`
+                  : "PPS: Untitled.docx"
+            }
+            data={tableData}
+          />
+
+          <ProcessedTable 
+            data={tableData} 
+            onModifiedRowsChange={(rows) => setModifiedRows(rows)}
+          />
+          <div className="flex justify-center mt-10">
+            <Button 
+              onClick={() => {
+                console.log("Resend Changes button clicked");
+                console.log("Modified Rows:", modifiedRows);
+                handleResend();
+              }}
+              disabled={modifiedRows.length === 0 || options.isProcessing}
+              className="w-full max-w-xl py-6"
+            >
+              {options.isProcessing ? "Resending..." : "Resend Changes"}
+            </Button>
+          </div>
+        </>
       )}
     </div>
   );
