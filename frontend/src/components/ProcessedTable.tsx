@@ -1,16 +1,25 @@
-import { on } from 'events';
 import React, { useState } from 'react';
 
 interface ProcessedItem {
-  script_block: string;
-  pps: {
-    plate_type: string;
-    content: {
+  plate_no: number;
+  transcript: string;
+  plate_type?: string;
+  description?: string;
+  plate_details?: {
+    template_number?: string;
+    plate_content: {
       heading?: string;
-      subheading?: string;
-      body: string | Array<{ point: string; subpoints: string[] }>;
-      subheading2?: string;
-      body2?: Array<{ point: string; subpoints: string[] }>;
+      descriptiveText?: string | null;
+      subheadings?: Array<{
+        subheadingText?: string | null;
+        descriptiveText?: string | null;
+        points?: Array<{ 
+          text: string | null;
+          subpoints: string[] | null
+        }>;
+        icon?: string | null;
+        image?: string | null;
+      }>;
     };
   };
 }
@@ -23,29 +32,47 @@ interface ProcessedTableProps {
 const plateOptions = [
   "Graphics",
   "Faceshot",
-  "Template 1",
-  "Template 2",
-  "Template 3",
-  "Template 4",
-  "Template 5",
-  "Template 6",
-  "Template 7",
-  "Template 8",
-  "Template 9",
-  "Template 10",
-  "Template 11",
-  "Template 12",
-  "Template 13",
-  "Template 14",
-  "Template 16",
-  "Template 17",
-  "Template 20",
-  "Template 21",
-  "Template 23",
-  "Template 24",
-  "Template 26",
-  "Template 27",
-  "Template 29"
+  "1",
+  "1A",
+  "2",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "11",
+  "12",
+  "13",
+  "14",
+  "15",
+  "16",
+  "16B",
+  "17",
+  "17B",
+  "18",
+  "18B",
+  "20",
+  "20B",
+  "21",
+  "21B",
+  "22",
+  "22B",
+  "23",
+  "23B",
+  "24",
+  "24B",
+  "25",
+  "26",
+  "26B",
+  "27",
+  "28",
+  "28A",
+  "28B",
+  "29",
+  "29A",
+  "29B",
 ]
 
 const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsChange }) =>   {
@@ -59,13 +86,10 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsCha
     if (onModifiedRowsChange) {
       const modifiedRows = Object.entries(newModified).map(([index, template]) => {
         const item = parseInt(index, 10);
-        const platePrefix = data[item].pps.plate_type.split(',')[0].trim();
         return {
-          script_block: data[item].script_block,
-          pps: {
-            plate_type: `${platePrefix}, ${template}`,
-            content: {}
-          },
+          plate_no: data[item].plate_no,
+          transcript: data[item].transcript,
+          template_number: `${template}`,
         };
       });
       onModifiedRowsChange(modifiedRows);
@@ -83,9 +107,14 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsCha
         </thead>
         <tbody>
           {data.map((item, index) => {
-            const [plateNumber, originalTemplate] = item.pps.plate_type.split(',').map(s => s.trim());
-            const currentTemplate = modifiedData[index] || originalTemplate;
+            const content = item.plate_details?.plate_content || {};
+            const currentTemplate = modifiedData[index] || item.plate_details?.template_number;
             const isModified = modifiedData.hasOwnProperty(index);
+
+            // Logic to map faceshot/graphics plate types to their respective options
+            const templateOptions = item.plate_type === "faceshot" || item.plate_type === "graphics"
+              ? [item.plate_type === "faceshot" ? "Faceshot" : "Graphics"]
+              : plateOptions;
 
             return (
               <tr 
@@ -93,17 +122,17 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsCha
                 className={`border-4 border-black ${isModified ? 'bg-red-100' : ''}`}
               >
                 <td className="px-6 py-4 w-1/2 align-top border-4 border-black">
-                  {item.script_block}
+                  {item.transcript}
                 </td>
                 <td className="px-6 py-4 w-1/2 align-top border-4 border-black">
-                  <div className="mb-2">
-                    <div className="mb-1">{plateNumber}</div>
+                  <div className="mb-2 flex items-center space-x-4">
+                    <div className="mb-1">Plate {item.plate_no}</div>
                     <select
                       value={currentTemplate}
                       onChange={(e) => handlePlateTypeChange(index, e.target.value)}
-                      className="border-2 border-gray-300 rounded p-2 w-1/2"
+                      className="border-2 border-gray-400 rounded p-2 w-1/2"
                     >
-                      {plateOptions.map((option) => (
+                      {templateOptions.map((option) => (
                         <option key={option} value={option}>
                           {option}
                         </option>
@@ -111,58 +140,59 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsCha
                     </select>
                   </div>
 
-                  {item.pps.content.heading && (
-                  <div className="mb-2">
-                    Heading: <span className="font-semibold">{item.pps.content.heading}</span>
-                  </div>
-                  )}
-
-                  {item.pps.content.subheading && (
-                    <div className="mb-1">
-                      Sub-Heading: <span className="font-semibold">{item.pps.content.subheading}</span>
+                  {/* Render image description if it exists */}
+                  {item.description && item.plate_type == "graphics" && (
+                    <div className="mb-2">
+                      Description: <span className="italic">{item.description}</span>
                     </div>
                   )}
 
-                  {/* First body (either string or array) */}
-                  {currentTemplate.includes("Faceshot") ? null : (
-                    <div className="mb-1">Description:</div>
-                  )}
-
-                  {Array.isArray(item.pps.content.body) ? (
-                    item.pps.content.body.map((desc, idx) => (
-                      <div key={idx} className="mb-4">
-                        <h4 className="font-semibold">{desc.point}</h4>
-                        {Array.isArray(desc.subpoints) && desc.subpoints.length > 0 ? (
-                          <ul className="list-disc pl-6 font-semibold">
-                            {desc.subpoints.map((subpoint, subIdx) => (
-                              <li key={subIdx}>{subpoint}</li>
+                  {/* Render plate_details if it exists */}
+                  {item.plate_details && (
+                    <div>
+                      {content.heading && (
+                        <div className="mb-2">
+                          Heading: <span className="font-semibold">{content.heading}</span>
+                        </div>
+                      )}
+                      {content.descriptiveText && (
+                        <div className="mb-2">
+                          Description: <p className="font-semibold">{content.descriptiveText}</p>
+                        </div>
+                      )}
+                      {content.subheadings &&
+                        content.subheadings.map((subheading, subIdx) => (
+                          <div key={subIdx} className="mb-4">
+                            Sub-heading: <span className="font-semibold">{subheading.subheadingText}</span>
+                            {subheading.descriptiveText && (
+                              <div className="mb-2">
+                                Description: <p className="font-semibold">{subheading.descriptiveText}</p>
+                              </div>
+                            )}
+                            {subheading.image && (
+                              <div className="mb-2">Image: <span className="italic">{subheading.image}</span></div>
+                            )}
+                            {subheading.icon && (
+                              <div className="mb-2">Icon: <span className="italic">{subheading.icon}</span></div>
+                            )}
+                            {subheading.points && subheading.points.map((point, pointIdx) => (
+                              <div key={pointIdx} className="mb-4">
+                                <ul className="list-disc pl-6 font-semibold">
+                                  <li>{point.text}</li>
+                                  {point.subpoints && point.subpoints.length > 0 && (
+                                    <ul className="list-disc pl-6 font-semibold">
+                                      {point.subpoints.map((subpoint, subpointIdx) => (
+                                        <li key={subpointIdx}>{subpoint}</li>
+                                      ))}
+                                    </ul>
+                                  )}
+                                </ul>
+                              </div>
                             ))}
-                          </ul>
-                        ) : null}
-                      </div>
-                    ))
-                  ) : (
-                    item.pps.content.body && (
-                      <div className="mb-4 font-semibold">{item.pps.content.body}</div>
-                    )
+                          </div>
+                      ))}
+                    </div>
                   )}
-
-                  {/* Optional second subheading and body (e.g., in Template 8) */}
-                  {item.pps.content.subheading2 && (
-                    <div className="italic mb-1">{item.pps.content.subheading2}</div>
-                  )}
-
-                  {Array.isArray(item.pps.content.body2) &&
-                    item.pps.content.body2.map((desc, idx) => (
-                      <div key={`body2-${idx}`} className="mb-4">
-                        <h4 className="font-semibold">{desc.point}</h4>
-                        <ul className="list-disc pl-6">
-                          {desc.subpoints.map((subpoint, subIdx) => (
-                            <li key={subIdx}>{subpoint}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
                 </td>
               </tr>
             );

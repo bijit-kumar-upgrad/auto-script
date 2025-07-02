@@ -25,7 +25,7 @@ const OutputSettings: React.FC<OutputSettingsProps> = ({
             <Label htmlFor="docTitle">Document Title</Label>
             <Input
               id="docTitle"
-              placeholder="e.g., 'PPS: Module Name'"
+              placeholder="e.g., 'PPS-Module Name'"
               value={docTitle}
               onChange={(e) => onDocTitleChange(e.target.value)}
             />

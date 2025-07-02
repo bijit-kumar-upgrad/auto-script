@@ -10,8 +10,8 @@ backend/
 │   ├── main.py           # FastAPI app entrypoint with /api/chat POST endpoint
 │   ├── services.py       # Service layer to call GitHub AI inference endpoint using OpenAI SDK
 │   └── config.py         # Load environment variables for GITHUB_TOKEN and API endpoint
-├── requirements.txt      # List of Python dependencies: fastapi, uvicorn, openai
-├── .env.example          # Example env file showing how to set GITHUB_TOKEN
+├── requirements.txt      # List of dependencies
+├── .env                  
 └── README.md             # Project documentation
 ```
 

@@ -1,0 +1,1163 @@
+[
+    {
+        "plate_no": 1,
+        "transcript": "Hello and welcome to the session on ‘Linux’!",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 2,
+        "transcript": "Linux is an operating system, just like Windows and macOS. An operating system, as you all know, is a system software that acts as a liaison between the software and hardware components of a computer. It receives requests from the other software on the system and communicates them to the hardware.",
+        "plate_type": "PPT_Template",
+        "description": "Overview of Operating Systems and their functions.",
+        "plate_details": {
+            "template_number": "11",
+            "reasoning": "The transcript describes the hierarchical relationship between operating systems and their functions, which fits the purpose of Template 11 for illustrating organizational or conceptual hierarchies.",
+            "plate_content": {
+                "heading": "OPERATING SYSTEMS",
+                "descriptiveText": "Linux, Windows, and macOS are examples of operating systems that manage hardware and software interactions.",
+                "subheadings": [
+                    {
+                        "subheadingText": "FUNCTION OF OPERATING SYSTEMS",
+                        "descriptiveText": "Operating systems act as a liaison between software and hardware components.",
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Receive requests from software",
+                                "subpoints": [
+                                    "Communicate with hardware"
+                                ]
+                            },
+                            {
+                                "text": "Manage system resources",
+                                "subpoints": [
+                                    "Allocate memory and processing power"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 3,
+        "transcript": "Linux is a free and open-source operating system. It was developed by Linus Torvus in 1991 while studying at University of Helsinki. The source code of linux can be modified and distributed to anyone under the GNU General Public License. Initially, when Linux was introduced, it was used in personal computers, but with time, it began to be used in mainframe computers, supercomputers, servers, etc. The Android operating system, which is used in most of the smartphones, is also based on Linux.",
+        "plate_type": "PPT_Template",
+        "description": "History and Evolution of Linux.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages and disadvantages of Linux as an operating system, making it suitable for a balanced comparison format.",
+            "plate_content": {
+                "heading": "LINUX OPERATING SYSTEM",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Free and open-source, allowing modifications and distribution.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Widely used in various systems, from personal computers to servers.",
+                                "subpoints": []
+                            }
+                        ]
+                    },
+                    {
+                        "subheadingText": "Disadvantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "May have a steeper learning curve for new users compared to other OS.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Limited support for some proprietary software applications.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 4,
+        "transcript": "Linux is packaged in a Linux distribution, which is an operating system that contains the Linux kernel and other supporting libraries and software. Some of the popular Linux distributions include Debian, Fedora, and Ubuntu.",
+        "plate_type": "PPT_Template",
+        "description": "Popular Linux Distributions.",
+        "plate_details": {
+            "template_number": "11",
+            "reasoning": "The transcript describes the hierarchical structure of Linux distributions, making it suitable for Template 11 which illustrates organizational or conceptual hierarchies.",
+            "plate_content": {
+                "heading": "LINUX DISTRIBUTIONS",
+                "descriptiveText": "Linux is packaged in distributions like Debian, Fedora, and Ubuntu, containing the Linux kernel and supporting software.",
+                "subheadings": null
+            }
+        }
+    },
+    {
+        "plate_no": 5,
+        "transcript": "Why is Linux Preferred to other OS? The answer is, it is preferred because it is open-source, secure, stable, runs on any hardware and can be maintained easily. Now, let’s take a closer look at each of these reasons why Linux is preferred to other operating systems.",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 6,
+        "transcript": "Linux is an open-source operating system, which means its source code is readily accessible for everyone. Any person who can code can make additions to it, change and improve it, and also allocate the code to anyone and for any purpose. Since Linux is freely redistributable, it can be created and apportioned for any purpose. This facilitates high customizability.",
+        "plate_type": "PPT_Template",
+        "description": "Advantages of Open Source Software.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of Linux as an open-source operating system, making it suitable for a balanced comparison of pros and cons.",
+            "plate_content": {
+                "heading": "LINUX OPERATING SYSTEM",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Open-source nature allows anyone to access and modify the source code.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "High customizability enables users to tailor the system to their needs.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 7,
+        "transcript": "Linux is also more secure than other operating systems, such as Windows, so much so that it doesn’t usually require an antivirus! Files in Linux must be made executable by someone with administrator privileges, which requires a password. So, even if you loaded a Linux virus on a Linux computer, the virus will not be able to run.",
+        "plate_type": "PPT_Template",
+        "description": "Security Features of Linux.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of Linux, particularly its security features, making it suitable for Template 7 which compares advantages and disadvantages.",
+            "plate_content": {
+                "heading": "LINUX SECURITY ANALYSIS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Linux is more secure than other operating systems.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "It usually does not require an antivirus.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Files must be made executable by an administrator.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Viruses cannot run without proper permissions.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 8,
+        "transcript": "As an operating system, Linux is very stable and rarely slows down or freezes. It is also highly unlikely for Linux systems to crash after an update. This stability is very important to large corporations where a downed server can lead to huge losses.",
+        "plate_type": "PPT_Template",
+        "description": "Stability of Linux.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of Linux as an operating system, highlighting its stability and reliability, which fits the advantages vs disadvantages template.",
+            "plate_content": {
+                "heading": "ADVANTAGES OF LINUX",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Linux is very stable and rarely slows down or freezes.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Highly unlikely for Linux systems to crash after an update.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Stability is crucial for large corporations to avoid losses.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 9,
+        "transcript": "Linux can also be installed on old hardware since its installation is quite flexible and it allows users to choose the modules that they want to install on their machine. It can be customised based on different hardware requirements of users and it uses the system’s resources quite efficiently.",
+        "plate_type": "PPT_Template",
+        "description": "Flexibility and Resource Efficiency of Linux.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of Linux, which fits the template for comparing advantages and disadvantages.",
+            "plate_content": {
+                "heading": "ADVANTAGES AND DISADVANTAGES OF LINUX",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Linux can be installed on old hardware due to its flexible installation.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "It allows users to choose the modules they want to install.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Linux can be customized based on different hardware requirements.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "It uses system resources efficiently.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 10,
+        "transcript": "Lastly, Linux has its own central software repository, which allows the users to centrally update the operating system and all the installed software easily and securely. It offers regular updates and the user can update the system without the need to reboot it.",
+        "plate_type": "PPT_Template",
+        "description": "Software Management in Linux.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of Linux, specifically its central software repository and ease of updates, which fits the advantages vs disadvantages template.",
+            "plate_content": {
+                "heading": "LINUX OPERATING SYSTEM",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Central software repository for easy updates.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Regular updates without needing to reboot.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 11,
+        "transcript": "The Linux architecture contains the following components: hardware layer, kernel, shell and applications. Let’s take a look at each of them in detail.",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 12,
+        "transcript": "The hardware layer facilitates the interaction of the Linux OS with the rest of the hardware components or devices. This external hardware may consist of hardware components such as RAM, hard drives, CPU and so on.",
+        "plate_type": "PPT_Template",
+        "description": "Components of Linux Architecture.",
+        "plate_details": {
+            "template_number": "11",
+            "reasoning": "The transcript describes a hierarchical relationship between the Linux OS and hardware components, which fits the purpose of Template 11.",
+            "plate_content": {
+                "heading": "HARDWARE LAYER",
+                "descriptiveText": "Facilitates interaction of the Linux OS with hardware components like RAM, hard drives, and CPU.",
+                "subheadings": null
+            }
+        }
+    },
+    {
+        "plate_no": 13,
+        "transcript": "The next component, kernel, is the core component of the operating system and it has complete control over all the aspects of the system. It is the connecting link between the software application of the computer and the external hardware. When a computer is switched on, a kernel is usually the first program that loads on startup. It resides in a special area within the computer memory that cannot be controlled or accessed by any other application. The kernel performs critical system processes in that special area. The rest of the user programs, which we usually use, such as text editors, web browsers, reside in a completely different memory area, called the user space, and they do not have access to the kernel area.",
+        "plate_type": "PPT_Template",
+        "description": "Detailed Explanation of the Kernel.",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The transcript describes a core component of the operating system, which fits well into the Four-Circle Process template that allows for detailed descriptions of components.",
+            "plate_content": {
+                "heading": "KERNEL COMPONENT",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Core Component",
+                        "descriptiveText": null,
+                        "icon": "kernel icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Functionality of Kernel",
+                                "subpoints": [
+                                    "Controls all system aspects",
+                                    "Connects software and hardware"
+                                ]
+                            },
+                            {
+                                "text": "Memory Management",
+                                "subpoints": [
+                                    "Resides in protected memory area",
+                                    "Critical processes in kernel space"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 14,
+        "transcript": "Next, we will talk about shell, which is an interface to the kernel, hiding the complexity of the kernel’s functions from the users. The shell takes commands from the user and executes the kernel’s functions. As you can deduce, the kernel is the innermost component of the Linux OS and a shell provides the user access to the kernel via the shell.",
+        "plate_type": "PPT_Template",
+        "description": "Understanding the Shell in Linux.",
+        "plate_details": {
+            "template_number": "11",
+            "reasoning": "The transcript discusses the relationship between the shell and the kernel in the Linux OS, which fits the hierarchical structure template as it illustrates the organizational relationship between these components.",
+            "plate_content": {
+                "heading": "SHELL AND KERNEL RELATIONSHIP",
+                "descriptiveText": "The shell acts as an interface to the kernel, simplifying user interaction with the kernel's functions.",
+                "subheadings": [
+                    {
+                        "subheadingText": "KERNEL",
+                        "descriptiveText": "The core component of the Linux OS, managing system resources and communication between hardware and software.",
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Innermost component of Linux OS",
+                                "subpoints": [
+                                    "Manages system resources",
+                                    "Facilitates hardware-software communication"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "subheadingText": "SHELL",
+                        "descriptiveText": "The user interface that allows interaction with the kernel, executing commands and functions.",
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Hides kernel complexity",
+                                "subpoints": [
+                                    "Takes user commands",
+                                    "Executes kernel functions"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 15,
+        "transcript": "Finally, we will take a look at the last component, applications. Applications include all the utility programs that run on shell. This can be any application such as a text editor, a video player and a web browser.",
+        "plate_type": "PPT_Template",
+        "description": "Applications in Linux.",
+        "plate_details": {
+            "template_number": "21",
+            "reasoning": "The transcript discusses the topic of applications and their relationships, making it suitable for a split-screen layout with interconnected circles.",
+            "plate_content": {
+                "heading": "APPLICATIONS",
+                "descriptiveText": "Applications include all the utility programs that run on shell. This can be any application such as a text editor, a video player and a web browser.",
+                "subheadings": [
+                    {
+                        "subheadingText": "Text Editor",
+                        "descriptiveText": "A program for editing text files.",
+                        "icon": "text editor icon",
+                        "image": null,
+                        "points": null
+                    },
+                    {
+                        "subheadingText": "Video Player",
+                        "descriptiveText": "Software for playing video files.",
+                        "icon": "video player icon",
+                        "image": null,
+                        "points": null
+                    },
+                    {
+                        "subheadingText": "Web Browser",
+                        "descriptiveText": "An application for accessing the internet.",
+                        "icon": "web browser icon",
+                        "image": null,
+                        "points": null
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 16,
+        "transcript": "Application of Linux wrt DevOps & Cloud",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 17,
+        "transcript": "Expertise in configuring operating systems and networking technologies is quite an important attribute for a DevOps engineer. Linux and any other operating system are an indispensable component of any IT operation, and the ability to configure Linux for DevOps is necessary for an incessant and prompt software delivery process.",
+        "plate_type": "PPT_Template",
+        "description": "Importance of Linux in DevOps.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of expertise in configuring operating systems and networking technologies for a DevOps engineer, which fits the advantages vs disadvantages template.",
+            "plate_content": {
+                "heading": "DEVOPS ENGINEER SKILLS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Expertise in configuring operating systems enhances efficiency in software delivery.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Proficiency in Linux is crucial for managing IT operations effectively.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 18,
+        "transcript": "The key to a DevOps operation is its scalability. You need to be able to expand without having to change your operating system, since changing would entail unnecessary expenses and time. Linux is highly scalable because the Linux kernel can store and process large amounts of memory. Moreover, for servers, a Linux environment is highly preferred because the downtime for Linux is very less, so a Linux system is consequently more reliable. A large number of maintenance tasks can also be automated via scripting which is an important element of Linux.",
+        "plate_type": "PPT_Template",
+        "description": "Scalability and Reliability of Linux in DevOps.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of using Linux in a DevOps operation, highlighting its scalability, reliability, and automation capabilities, which fits the advantages vs disadvantages template.",
+            "plate_content": {
+                "heading": "DEVOPS OPERATIONS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Highly scalable, allowing expansion without OS changes.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Low downtime, making Linux systems more reliable.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Automation of maintenance tasks via scripting.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 19,
+        "transcript": "When it comes to critical workloads in data centres and cloud computing environments, Linux provides the most widespread and dependable solution. Currently, all the major public cloud providers, from Google Cloud Platform (GCP) to Microsoft Azure and Amazon Web Services (AWS), have Linux in different variants available to cater to their customers.",
+        "plate_type": "PPT_Template",
+        "description": "Linux in Cloud Computing.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of using Linux in cloud computing environments, making it suitable for a balanced comparison of pros and cons.",
+            "plate_content": {
+                "heading": "LINUX IN CLOUD COMPUTING",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Widespread adoption across major cloud providers.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Dependable solution for critical workloads.",
+                                "subpoints": []
+                            }
+                        ]
+                    },
+                    {
+                        "subheadingText": "Disadvantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "May require specialized knowledge for management.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Compatibility issues with some proprietary software.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 20,
+        "transcript": "A key characteristic of Linux is its security because of which it is able to address the majority of the data concerns that organisations may face being in the public cloud. The community is able to contribute security patching in tandem with demand on account of Linux being open-source. A stable platform with reliable patching, delivered in a highly scalable environment, proves to be a great advantage for companies.",
+        "plate_type": "PPT_Template",
+        "description": "Security Advantages of Linux in Cloud.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The transcript discusses the advantages of Linux, particularly its security and community support, making it suitable for a balanced comparison of pros and cons.",
+            "plate_content": {
+                "heading": "LINUX SECURITY ANALYSIS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Strong security features addressing data concerns.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Open-source community contributes to timely security patches.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Stable platform with reliable patching.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Highly scalable environment for organizations.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 21,
+        "transcript": "Hence, it is essential to have a reasonable knowledge of Linux. This session will provide you with a general understanding of Linux along with some aspects of system administration and networking.",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 22,
+        "transcript": "Welcome to the session on ‘Scripting’! Now, before you can start learning about scripting, you need to know what a shell is.",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 23,
+        "transcript": "Shell is a command-line interface and an interpreter. It provides a user interface to input human-readable commands, which it then converts into commands that the operating system can understand. It is a command language interpreter, which executes commands read from an input device, such as a keyboard, or from a file.",
+        "plate_type": "PPT_Template",
+        "description": "Introduction to Shell.",
+        "plate_details": {
+            "template_number": "26",
+            "reasoning": "The transcript describes the function and purpose of a shell, which can be framed as a discussion question to engage viewers in understanding its role in computing.",
+            "plate_content": {
+                "heading": "SHELL FUNCTIONALITY",
+                "descriptiveText": "What is the role of a shell in a command-line interface?",
+                "subheadings": [
+                    {
+                        "subheadingText": "Understanding Shells",
+                        "descriptiveText": "Explore how shells interpret commands and interact with the operating system.",
+                        "icon": "question mark",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Shell as a command-line interface.",
+                                "subpoints": [
+                                    "Provides user interface for commands.",
+                                    "Converts human-readable commands to OS commands."
+                                ]
+                            },
+                            {
+                                "text": "Execution of commands.",
+                                "subpoints": [
+                                    "Reads commands from input devices or files."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 24,
+        "transcript": "There is a special program called Terminal in Linux/macOS or Command Prompt in Windows OS, which enables us to type human-readable commands, which are then executed. The result is then displayed on the terminal to the user. The shell gets started when the user logs in or starts the terminal. There are many different shells available for Linux, such as  BASH (Bourne Again Shell), CSH (C Shell), KSH (Korn Shell). All of them do the same job, but understand different commands and provide different in-built functions.",
+        "plate_type": "PPT_Template",
+        "description": "Different Types of Shells.",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The content consists of multiple points about terminal commands and shells, making it suitable for a few bullet points with subpoints.",
+            "plate_content": {
+                "heading": "TERMINAL AND SHELLS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Terminal Program",
+                        "descriptiveText": "The Terminal in Linux/macOS or Command Prompt in Windows OS allows users to execute commands.",
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Functionality of Terminal",
+                                "subpoints": [
+                                    "Enables typing human-readable commands.",
+                                    "Executes commands and displays results."
+                                ]
+                            },
+                            {
+                                "text": "Shell Initialization",
+                                "subpoints": [
+                                    "Starts when the user logs in or opens the terminal."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "subheadingText": "Different Shells",
+                        "descriptiveText": "Various shells are available in Linux, each with unique commands and functions.",
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Types of Shells",
+                                "subpoints": [
+                                    "BASH (Bourne Again Shell)",
+                                    "CSH (C Shell)",
+                                    "KSH (Korn Shell)"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 25,
+        "transcript": "Bash is the most commonly used shell. It is also the default shell present in Linux. Bash is an acronym, which stands for Bourne Again Shell. It is a command-line interpreter that typically runs in a text window where users can interpret commands to carry out various actions. It was written by Brian Fox. It was a replacement for the Bourne shell and provides functional improvements over the Bourne Shell for both programming and interactive uses. We will be working with Bash throughout this session.",
+        "plate_type": "PPT_Template",
+        "description": "Overview of Bash Shell.",
+        "plate_details": {
+            "template_number": "26B",
+            "reasoning": "The content is designed to engage viewers with a reflective question about Bash, which fits the purpose of Template 26B.",
+            "plate_content": {
+                "heading": null,
+                "descriptiveText": "What are the key features of Bash that make it the preferred shell for Linux users?",
+                "subheadings": null
+            }
+        }
+    },
+    {
+        "plate_no": 26,
+        "transcript": "A shell script is a program that runs on the shell. It allows you to run a bunch of commands at once. You can combine long repetitive sequences of commands into a single script and run them all at once. Suppose you have a number of photos from various trips on your camera and you wish to resize or compress them and store them in separate zipped folders. Instead of resizing the images individually and creating zipped folders, you can simply write a script to execute the resizing and zipping operation on all the photos. Doing so would save you a lot of effort and time as you would have done the job by writing a simple script! Thus, scripting allows you to automate a lot of tasks, such as system boot, server deployment, server configuration, application startup and application installation. Each shell script is saved with the .sh file extension, for example, script.sh.",
+        "plate_type": "PPT_Template",
+        "description": "What is a Shell Script?",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The content describes the concept of shell scripts and their applications, which can be effectively presented using an OG Types template with categorized points and subpoints.",
+            "plate_content": {
+                "heading": "SHELL SCRIPTS",
+                "descriptiveText": "Shell scripts are powerful tools for automating tasks in a Unix/Linux environment.",
+                "subheadings": [
+                    {
+                        "subheadingText": "What is a Shell Script?",
+                        "descriptiveText": "A shell script is a program that runs on the shell, allowing you to execute multiple commands at once.",
+                        "icon": "shell icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Definition of Shell Script",
+                                "subpoints": [
+                                    "A program that runs on the shell.",
+                                    "Combines multiple commands into one script."
+                                ]
+                            },
+                            {
+                                "text": "Benefits of Using Shell Scripts",
+                                "subpoints": [
+                                    "Automates repetitive tasks.",
+                                    "Saves time and effort."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "subheadingText": "Practical Example",
+                        "descriptiveText": "Using a shell script to manage photos efficiently.",
+                        "icon": "photo icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Resizing and Zipping Photos",
+                                "subpoints": [
+                                    "Resize multiple images at once.",
+                                    "Create zipped folders automatically."
+                                ]
+                            },
+                            {
+                                "text": "Common Applications",
+                                "subpoints": [
+                                    "System boot automation.",
+                                    "Server deployment and configuration."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 27,
+        "transcript": "A shell script comprises the following four elements: Shell keywords, shell commands, functions and control flow.",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 28,
+        "transcript": "The first element is shell keywords. Keywords are the words in the shell whose meaning has already been explained to it. They are a set of reserved words, which have a reserved meaning. You cannot define a variable whose name is similar to a keyword. Some examples of keywords include exit, if, else, break, continue, etc.",
+        "plate_type": "PPT_Template",
+        "description": "Understanding Shell Keywords.",
+        "plate_details": {
+            "template_number": "27",
+            "reasoning": "The transcript provides a detailed explanation of shell keywords, which fits the purpose of Template 27 for definitions and explanations.",
+            "plate_content": {
+                "heading": "SHELL KEYWORDS",
+                "descriptiveText": "Keywords are the words in the shell whose meaning has already been explained to it. They are a set of reserved words, which have a reserved meaning. You cannot define a variable whose name is similar to a keyword. Some examples of keywords include exit, if, else, break, continue, etc.",
+                "subheadings": [
+                    {
+                        "subheadingText": "Definition of Keywords",
+                        "descriptiveText": "A set of reserved words with specific meanings in shell programming.",
+                        "icon": null,
+                        "image": null,
+                        "points": null
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 29,
+        "transcript": "The next element, shell commands, are a set of in-built commands that have a specific purpose. As an example, you can use the mkdir command if you want to create a directory. Some other examples of commands include cd, ls, pwd, etc.",
+        "plate_type": "PPT_Template",
+        "description": "Common Shell Commands.",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The content consists of multiple shell commands with specific purposes, making it suitable for a few bullet points format.",
+            "plate_content": {
+                "heading": "SHELL COMMANDS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "COMMANDS",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "mkdir",
+                                "subpoints": [
+                                    "Creates a directory."
+                                ]
+                            },
+                            {
+                                "text": "cd",
+                                "subpoints": [
+                                    "Changes the current directory."
+                                ]
+                            },
+                            {
+                                "text": "ls",
+                                "subpoints": [
+                                    "Lists directory contents."
+                                ]
+                            },
+                            {
+                                "text": "pwd",
+                                "subpoints": [
+                                    "Prints the current working directory."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 30,
+        "transcript": "Next, let’s take a look at the third element, functions. There might be situations where you want to use a single block of code consisting of a group of commands several times at different places in the shell script. Functions are used to handle these groups of commands in the shell script and they can be called whenever you want to execute it in the script.",
+        "plate_type": "PPT_Template",
+        "description": "Using Functions in Shell Scripts.",
+        "plate_details": {
+            "template_number": "5",
+            "reasoning": "The content discusses the concept of functions in shell scripts, which involves explaining a process with supporting details. Template 5 is suitable as it allows for expanded steps with subpoints, making it ideal for this explanation.",
+            "plate_content": {
+                "heading": "FUNCTIONS IN SHELL SCRIPTS",
+                "descriptiveText": "Functions are used to handle groups of commands in shell scripts, allowing for code reuse and organization.",
+                "subheadings": [
+                    {
+                        "subheadingText": "Definition of Functions",
+                        "descriptiveText": "Functions are blocks of code that can be reused throughout the script.",
+                        "icon": "function icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Purpose of Functions",
+                                "subpoints": [
+                                    "To group commands for reuse",
+                                    "To improve script organization",
+                                    "To simplify complex scripts"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 31,
+        "transcript": "Lastly, let’s take a look at the fourth element: control flow. Control flow gives the user the ability to specify that only a particular portion of the program is running according to certain conditions. For example, if-else executes a list of statements in our program if a certain condition is true or false, and for executes a list of statements for a fixed number of times. Other examples of control flow include while, case, until, etc.",
+        "plate_type": "PPT_Template",
+        "description": "Control Flow in Shell Scripts.",
+        "plate_details": {
+            "template_number": "4",
+            "reasoning": "The transcript describes a process flow related to control flow in programming, which fits the purpose of Template 4 that focuses on detailed stage descriptions.",
+            "plate_content": {
+                "heading": "CONTROL FLOW",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Control Flow Basics",
+                        "descriptiveText": "Control flow allows users to dictate program execution based on conditions.",
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Key Concepts",
+                                "subpoints": [
+                                    "if-else, for, while"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 32,
+        "transcript": "There are many reasons we write shell scripts. However, they are written mainly: To avoid repetitive work and automation - Suppose there is a task that you need to perform daily by executing the same commands on Linux everyday. You can automate the process by storing these commands in a file and then run it as a shell script. As an example, you may want to check the price of a particular stock daily and want to trigger an SMS if the price fulfills certain conditions.",
+        "plate_type": "PPT_Template",
+        "description": "Reasons for Writing Shell Scripts.",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The content discusses multiple reasons for writing shell scripts, which can be categorized into points with subpoints. Template 1 is suitable as it allows for a few bullets with subpoints, making it easy to visualize the information clearly.",
+            "plate_content": {
+                "heading": "REASONS FOR WRITING SHELL SCRIPTS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Automation of Repetitive Tasks",
+                        "descriptiveText": "Shell scripts help automate tasks that need to be performed regularly.",
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Avoid Repetitive Work",
+                                "subpoints": [
+                                    "Automate daily tasks",
+                                    "Store commands in a file",
+                                    "Run as a shell script"
+                                ]
+                            },
+                            {
+                                "text": "Trigger Notifications",
+                                "subpoints": [
+                                    "Check stock prices daily",
+                                    "Send SMS on price conditions",
+                                    "Automate alerts based on conditions"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 33,
+        "transcript": "Because system admins use shell scripting for their routine backups - One of the easiest ways to take backup is through the use of shell scripts. For example, we can use a shell script to back up particular directories.",
+        "plate_type": "PPT_Template",
+        "description": "Shell Scripts for Backups.",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The content is straightforward and can be effectively presented using a Takeaway plate format, which is suitable for short, concise information.",
+            "plate_content": {
+                "heading": "BACKUP USING SHELL SCRIPTS",
+                "descriptiveText": "System admins use shell scripting for their routine backups. One of the easiest ways to take backup is through the use of shell scripts. For example, we can use a shell script to back up particular directories.",
+                "subheadings": [
+                    {
+                        "subheadingText": "EASY BACKUP",
+                        "descriptiveText": "Shell scripts simplify the backup process for system administrators.",
+                        "icon": "backup icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Shell scripting automates routine backups.",
+                                "subpoints": [
+                                    "Reduces manual effort",
+                                    "Increases reliability"
+                                ]
+                            },
+                            {
+                                "text": "Specific directories can be targeted for backup.",
+                                "subpoints": [
+                                    "Customizable backup options",
+                                    "Efficient data management"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 34,
+        "transcript": "For system monitoring - Monitoring can be performed by using shell scripts in our system. For example, we can monitor the CPU utilisation on our Linux system through a shell script, which will trigger an email to a specific email ID when the system reaches a certain threshold (say, 70 % utilisation). Other examples include sending email upon the detection of hardware error, monitoring the process running on our system after every hour.",
+        "plate_type": "PPT_Template",
+        "description": "Monitoring with Shell Scripts.",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The transcript discusses monitoring system performance using shell scripts, which fits well with a structured format that includes headings and subheadings to organize the information clearly.",
+            "plate_content": {
+                "heading": "SYSTEM MONITORING",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "MONITORING WITH SHELL SCRIPTS",
+                        "descriptiveText": "Monitoring can be performed by using shell scripts in our system.",
+                        "icon": "shell script icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Monitor CPU Utilisation",
+                                "subpoints": [
+                                    "Trigger email at 70% utilisation"
+                                ]
+                            },
+                            {
+                                "text": "Detect Hardware Errors",
+                                "subpoints": [
+                                    "Send email upon detection"
+                                ]
+                            },
+                            {
+                                "text": "Hourly Process Monitoring",
+                                "subpoints": [
+                                    "Check running processes every hour"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 35,
+        "transcript": "To add new functionality to the shell - We can use shell scripts to perform various operations in our system. It adds more functionality to the shell as it can be used multiple times without writing the same commands all over again, thus reducing manual effort. As an example, if you want to know the number of users that are logged in to the system and what are the tasks that they are performing, then you can do so using shell script and using it whenever required.",
+        "plate_type": "PPT_Template",
+        "description": "Enhancing Shell Functionality.",
+        "plate_details": {
+            "template_number": "5",
+            "reasoning": "The content describes a process of using shell scripts to enhance functionality, which fits well with the OG Process template that allows for expanded steps with subpoints.",
+            "plate_content": {
+                "heading": "ADDING FUNCTIONALITY TO THE SHELL",
+                "descriptiveText": "Using shell scripts to perform various operations in our system enhances the shell's functionality by allowing repeated use without rewriting commands.",
+                "subheadings": [
+                    {
+                        "subheadingText": "USING SHELL SCRIPTS",
+                        "descriptiveText": "Shell scripts can automate tasks and reduce manual effort.",
+                        "icon": "script-icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Perform Various Operations",
+                                "subpoints": [
+                                    "Automate repetitive tasks",
+                                    "Execute commands efficiently",
+                                    "Enhance system functionality"
+                                ]
+                            },
+                            {
+                                "text": "Check Logged-in Users",
+                                "subpoints": [
+                                    "Identify active users",
+                                    "Monitor tasks being performed",
+                                    "Gather system usage data"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 36,
+        "transcript": "The use of shell scripts is associated with certain advantages as well as drawbacks.",
+        "plate_type": "faceshot",
+        "description": ""
+    },
+    {
+        "plate_no": 37,
+        "transcript": "If we talk about the advantages, the command and the syntax of shell scripts are exactly the same as those entered directly in the command line and so, programmers do not need to switch to different syntaxes while writing the scripts. Writing shell scripts is a much quicker process, which gives us a quick start and helps with interactive debugging and so on.",
+        "plate_type": "PPT_Template",
+        "description": "Advantages of Shell Scripting.",
+        "plate_details": {
+            "template_number": "7",
+            "reasoning": "The content compares advantages and disadvantages of shell scripts, making Template 7 suitable for a balanced comparison.",
+            "plate_content": {
+                "heading": "ADVANTAGES AND DISADVANTAGES OF SHELL SCRIPTS",
+                "descriptiveText": null,
+                "subheadings": [
+                    {
+                        "subheadingText": "Advantages",
+                        "descriptiveText": null,
+                        "icon": null,
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Same command and syntax as command line.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Faster writing process for scripts.",
+                                "subpoints": []
+                            },
+                            {
+                                "text": "Facilitates interactive debugging.",
+                                "subpoints": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    },
+    {
+        "plate_no": 38,
+        "transcript": "Nevertheless, a single mistake by the programmer can change the command, which can be harmful and so, it is prone to costly errors. Also, the execution speed of shell scripts is low and so, they are not well suited for large and complex tasks.",
+        "plate_type": "PPT_Template",
+        "description": "Drawbacks of Shell Scripting.",
+        "plate_details": {
+            "template_number": "1",
+            "reasoning": "The transcript discusses the drawbacks of shell scripts, which can be effectively presented using a takeaway plate format that highlights key points and their implications.",
+            "plate_content": {
+                "heading": "DRAWBACKS OF SHELL SCRIPTS",
+                "descriptiveText": "Understanding the limitations of shell scripts is crucial for effective programming and task execution.",
+                "subheadings": [
+                    {
+                        "subheadingText": "Costly Errors",
+                        "descriptiveText": "A single mistake by the programmer can change the command, leading to harmful outcomes and costly errors.",
+                        "icon": "error icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Prone to costly errors.",
+                                "subpoints": null
+                            },
+                            {
+                                "text": "Single mistakes can change commands.",
+                                "subpoints": null
+                            }
+                        ]
+                    },
+                    {
+                        "subheadingText": "Execution Speed",
+                        "descriptiveText": "Shell scripts have a low execution speed, making them unsuitable for large and complex tasks.",
+                        "icon": "speed icon",
+                        "image": null,
+                        "points": [
+                            {
+                                "text": "Execution speed is low.",
+                                "subpoints": null
+                            },
+                            {
+                                "text": "Not well suited for large tasks.",
+                                "subpoints": null
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+]

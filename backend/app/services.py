@@ -1,57 +1,84 @@
-import os
-from fastapi import HTTPException
-from .config import BASE_URL, MODEL, GITHUB_TOKEN
-from openai import OpenAI
+from langchain import hub
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_core.documents import Document
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from typing_extensions import List, TypedDict
+from .LLM_1_Master import master_response,get_template_plates_summary, templateTypeEnum
+from .LLM_2_ppt import query_with_pps_format
+from .create_vector_store import create_vector_store
+import json
 
 # Function to get the AI response
-def get_ai_response(input_script) -> str:
-    try:
-        # Initialize the OpenAI chat completions client
-        client = OpenAI(base_url=BASE_URL, api_key=GITHUB_TOKEN)
+def get_ai_response(input_script, processing_options) -> str:
 
-        # Get the current directory of this script
-        current_dir = os.path.dirname(__file__)
+    vectorstore = create_vector_store()
 
-        # Construct the relative paths to the .md and .docx files
-        md_file_path = os.path.join(current_dir, "pps-master-prompt.md")
+    master_response_var = master_response(input_script, processing_options)
+    template_plates = get_template_plates_summary(master_response_var)
 
-        # Read the .md file content
-        with open(md_file_path, "r") as file:
-            markdown_content = file.read()
+    templates = []
+    for plate in template_plates:
+        template = query_with_pps_format(vectorstore, plate['transcript'])
+        templates.append(template)
+    
+    master_json= master_response_var.model_dump()
+    master_json['plates'][0]
+    return add_plate_details(master_json, templates)
 
-        print("Sending request to OpenAI API...")
+def add_plate_details(master_json,templates):
+    plates = master_json['plates']
+    i=0
+    for plate in plates:
+        if plate.get("plate_type") == templateTypeEnum.PPT_Template:
+            plate["plate_details"] = templates[i].model_dump()
+            i+=1
 
-        # Prepare the request payload
-        response = client.chat.completions.create(
-            model=MODEL,
-            messages=[
-            {"role": "system", "content": markdown_content},
-            {"role": "user",
-            "content": (
-                "Create a pps based on the script provided here:" + input_script +
-                "Please provide the output in JSON format only. Ensure that the output follows the provided guideline. Do not include any introductory text, conclusion, or follow-up questions."
-                "Focus solely on the content, including any necessary headings, lists, and tables, without additional commentary or explanations. "
-                "Use only normal UTF-8 characters and avoid using quotations, emojis, or any special characters. "
-                "Ensure the JSON response strictly matches the following structure:\n"
-                "[\n"
-                "  {\n"
-                "    \"script_block\": \"string\",\n"
-                "    \"pps\": {\n"
-                "    \"plate_type\": \"string\",\n"
-                "       \"content\": {\n"
-                "           \"heading\": \"string\", // Optional depending on template\n"
-                "           \"subheading\": \"string\", // Optional depending on template\n"
-                "           \"body\": \"string or Array of objects with 'point' and 'subpoints' properties\"\n"
-                "       }\n"
-                "    }\n"
-                "  }\n"
-                "]"
-                "plate_type is the plate number and template being used, in this format: Plate #, Template #. Here Plate number is the indicates the sequence of the plate"
-            )}
-            ]
-        )
+    return plates
 
-        # Extract and return the AI-generated response
-        return response.choices[0].message.content
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error interacting with AI model: {str(e)}")
+# Pass template number and transcript to regenerate response
+# This function will return the json format of {plate_details} - refer LLM_2_ppt.py for the schema
+def regenerate_response(template_number: str, transcript: str) -> str:
+    vectorstore = create_vector_store()
+    regen_prompt = f"Use template {template_number} for the transcript: {transcript}"
+    template = query_with_pps_format(vectorstore, regen_prompt)
+    
+    return template.model_dump()
+
+def regenerate_response_for_list(plates, existing_plates):
+    # If plates is a JSON string, parse it
+    if isinstance(plates, str):
+        plates = json.loads(plates)
+
+    # Map plate_no to plate dict for quick lookup
+    plates_by_no = {plate['plate_no']: plate for plate in plates}
+
+    new_plates = []
+    for plate in existing_plates:
+        plate_no = plate.get('plate_no')
+        if plate_no in plates_by_no:
+            regenerated = {}
+            # Regenerate using the updated transcript and template_number
+            updated = plates_by_no[plate_no]
+            print("Updated template #",updated['template_number'])
+            if not (updated['template_number'] == "Faceshot" or updated["template_number"] == "Graphics"):
+                regenerated = regenerate_response(updated['template_number'], updated['transcript'])
+            # Preserve the original plate structure, updating plate_details
+            plate_copy = plate.copy()
+            plate_copy['plate_details'] = regenerated
+            new_plates.append(plate_copy)
+        else:
+            new_plates.append(plate)
+    return new_plates
+
+'''
+def regenerate_response_for_list(plates, existing_plates):
+    changed_plate_nos = [plate['plate_no'] for plate in plates]
+    changed_plates = dict(zip(changed_plate_nos, plates))
+    new_plates = []
+    for plate in existing_plates:
+        if plate['plate_no'] in changed_plate_nos:
+            new_plates.append(regenerate_response(changed_plates[plate['plate_no']]['template_number'], changed_plates[plate['plate_no']]['transcript']))
+        else:
+            new_plates.append(plate)
+    return new_plates
+'''

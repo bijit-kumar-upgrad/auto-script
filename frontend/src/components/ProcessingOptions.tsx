@@ -1,13 +1,11 @@
-
-import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Slider } from "@/components/ui/slider";
 import { Label } from "@/components/ui/label";
 
 export interface ProcessingOptionsType {
-  suggestFaceShots: boolean;
-  suggestGraphics: boolean;
-  applyTemplates: boolean;
+  suggestFaceShots: number; // Slider value for face shots
+  suggestGraphics: number; // Slider value for graphics
+  applyTemplates: number; // Slider value for templates
 }
 
 interface ProcessingOptionsProps {
@@ -19,12 +17,14 @@ const ProcessingOptions: React.FC<ProcessingOptionsProps> = ({
   options,
   onOptionsChange,
 }) => {
-  const handleCheckboxChange = (option: keyof ProcessingOptionsType) => {
-    const newOptions = {
+  const total = options.suggestFaceShots + options.suggestGraphics + options.applyTemplates;
+  const error = total !== 100 ? 'The total value must equal 100' : '';
+
+  const handleSliderChange = (name: keyof ProcessingOptionsType, value: number) => {
+    onOptionsChange({
       ...options,
-      [option]: !options[option],
-    };
-    onOptionsChange(newOptions);
+      [name]: value,
+    });
   };
 
   return (
@@ -36,32 +36,59 @@ const ProcessingOptions: React.FC<ProcessingOptionsProps> = ({
         </p>
         
         <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Checkbox 
-              id="suggestFaceShots" 
-              checked={options.suggestFaceShots}
-              onCheckedChange={() => handleCheckboxChange('suggestFaceShots')}
-            />
-            <Label htmlFor="suggestFaceShots">Suggest Face Shots</Label>
+          {/* FaceShots Slider */}
+          <div className="flex items-center justify-between">
+            <Label htmlFor="suggestFaceShots" className="w-1/4 text-left">Faceshots</Label>
+            <div className="w-5/6">
+              <Slider
+                id="suggestFaceShots"
+                min={0}
+                max={100}
+                step={5}
+                value={[options.suggestFaceShots]}
+                onValueChange={(value) => handleSliderChange('suggestFaceShots', value[0])}
+                
+              />
+            </div>
+            <div className="w-1/6 text-center">{[options.suggestFaceShots]}%</div>
           </div>
           
-          <div className="flex items-center space-x-2">
-            <Checkbox 
-              id="suggestGraphics" 
-              checked={options.suggestGraphics}
-              onCheckedChange={() => handleCheckboxChange('suggestGraphics')}
-            />
-            <Label htmlFor="suggestGraphics">Suggest Relevant Graphics</Label>
+          {/* Graphics Slider */}
+          <div className="flex items-center justify-between">
+            <Label htmlFor="suggestGraphics" className="w-1/4 text-left">Graphics</Label>
+            <div className="w-5/6">
+              <Slider
+                id="suggestGraphics"
+                min={0}
+                max={100}
+                step={5}
+                value={[options.suggestGraphics]}
+                onValueChange={(value) => handleSliderChange('suggestGraphics', value[0])}
+              />
+            </div>
+            <div className="w-1/6 text-center">{options.suggestGraphics}%</div>
+          </div>
+
+          {/* Templates Slider */}
+          <div className="flex items-center justify-between">
+            <Label htmlFor="applyTemplates" className="w-1/4 text-left">Templates</Label>
+            <div className="w-5/6">
+              <Slider
+                id="applyTemplates"
+                min={0}
+                max={100}
+                step={5}
+                value={[options.applyTemplates]}
+                onValueChange={(value) => handleSliderChange('applyTemplates', value[0])}
+              />
+            </div>
+            <div className="w-1/6 text-center">{options.applyTemplates}%</div>
           </div>
           
-          <div className="flex items-center space-x-2">
-            <Checkbox 
-              id="applyTemplates" 
-              checked={options.applyTemplates}
-              onCheckedChange={() => handleCheckboxChange('applyTemplates')}
-            />
-            <Label htmlFor="applyTemplates">Apply Presentation Templates</Label>
-          </div>
+          {/* Error Message */}
+          {error && (
+            <p className="text-red-500 mt-2">{error}</p>
+          )}
         </div>
       </CardContent>
     </Card>

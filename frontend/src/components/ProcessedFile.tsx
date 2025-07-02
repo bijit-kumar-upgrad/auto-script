@@ -14,15 +14,25 @@ import {
 } from "docx";
 
 interface ProcessedItem {
-  script_block: string;
-  pps: {
-    plate_type: string;
-    content: {
+  plate_no: number;
+  transcript: string;
+  plate_type?: string;
+  description?: string;
+  plate_details?: {
+    template_number?: string;
+    plate_content: {
       heading?: string;
-      subheading?: string;
-      body: string | Array<{ point: string; subpoints: string[] }>;
-      subheading2?: string;
-      body2?: Array<{ point: string; subpoints: string[] }>;
+      descriptiveText?: string | null;
+      subheadings?: Array<{
+        subheadingText?: string | null;
+        descriptiveText?: string | null;
+        points?: Array<{ 
+          text: string | null;
+          subpoints: string[] | null
+        }>;
+        icon?: string | null;
+        image?: string | null;
+      }>;
     };
   };
 }
@@ -72,45 +82,63 @@ const ProcessedFile: React.FC<ProcessedFileProps> = ({ title, data }) => {
       }),
 
       ...data.map((item) => {
-        const content = item.pps.content;
+        const content = item.plate_details?.plate_content;
 
         const ppsBlocks: Paragraph[] = [];
 
-        ppsBlocks.push(styledText(`${item.pps.plate_type}`));
-
-        if (content.heading)
-          ppsBlocks.push(styledText("Heading: ", content.heading, true));
-
-        if (content.subheading)
-          ppsBlocks.push(styledText("Subheading: ", content.subheading, true));
-
-        if (Array.isArray(content.body)) {
-          content.body.forEach((b) => {
-            ppsBlocks.push(styledText(b.point, undefined, true));
-            b.subpoints?.forEach((sub) => {
-              ppsBlocks.push(styledText(sub, undefined, true, true));
-            });
-          });
-        } else if (typeof content.body === "string") {
-          ppsBlocks.push(styledText(content.body));
+        let plate_type = "";
+        if (item.plate_type === "graphics") {
+          plate_type = "Graphics";
+        } else if (item.plate_type === "faceshot") {
+          plate_type = "Faceshot";
+        } else {
+          plate_type = item.plate_details?.template_number;
         }
 
-        if (content.subheading2)
-          ppsBlocks.push(styledText("Subheading 2: ", content.subheading2, true));
-
-        if (Array.isArray(content.body2)) {
-          content.body2.forEach((b) => {
-            ppsBlocks.push(styledText(b.point, undefined, true));
-            b.subpoints?.forEach((sub) => {
-              ppsBlocks.push(styledText(sub, undefined, true, true));
-            });
-          });
+        if (plate_type === "Graphics" || plate_type === "Faceshot") {
+          ppsBlocks.push(styledText(`Plate ${item.plate_no}, ${plate_type}`));
+        } else {
+          ppsBlocks.push(styledText(`Plate ${item.plate_no}, Template ${plate_type}`));
         }
 
+        // Add a newline after the plate type info
+        ppsBlocks.push(new Paragraph({
+          children: [new TextRun("\n")],
+        }));
+
+        if (item.plate_details){
+          if (content.heading)
+            ppsBlocks.push(styledText("Heading: ", content.heading, true));
+
+          if (content.descriptiveText &&
+            ["11", "12", "13", "14", "15", "24", "25", "26", "28", "29"].includes(item.plate_details.template_number))
+            ppsBlocks.push(styledText("Description: ", content.descriptiveText, true));
+
+          if (content.subheadings) {
+            content.subheadings.forEach((subheading) => {
+              // Add a newline before each subheading
+              ppsBlocks.push(new Paragraph({
+                children: [new TextRun("\n")],
+              }));
+              if (subheading.subheadingText){
+                ppsBlocks.push(styledText("Sub-Heading: ", subheading.subheadingText, true));
+                if (subheading.descriptiveText &&
+                   ["4","8","9","17","20","22","27"].includes(item.plate_details.template_number))
+                  ppsBlocks.push(styledText("Description: ", subheading.descriptiveText))
+              }
+              subheading.points?.forEach((point) => {
+                ppsBlocks.push(styledText(point.text || "", undefined, true, true));
+                point.subpoints?.forEach((subpoint) => {
+                  ppsBlocks.push(styledText(subpoint, undefined, true, true));
+                });
+              });
+            });
+          }
+        }
         return new TableRow({
           children: [
             new TableCell({
-              children: [styledText(item.script_block)],
+              children: [styledText(item.transcript)],
             }),
             new TableCell({
               children: ppsBlocks,
