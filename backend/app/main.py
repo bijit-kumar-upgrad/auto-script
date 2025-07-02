@@ -91,9 +91,9 @@ async def process_transcript(request: Request):
         input_doc = "\n".join(text)
 
         # Send the extracted text to the AI model and get the response
-        #ai_response = get_ai_response(input_doc, processing_options_data)
+        ai_response = get_ai_response(input_doc, processing_options_data)
 
-        #'''
+        '''
         # Get the current directory of this script
         current_dir = os.path.dirname(__file__)
 
@@ -103,7 +103,7 @@ async def process_transcript(request: Request):
             dummy_content = dummy_file.read()
 
         ai_response = dummy_content
-        #'''
+        '''
         #print("AI response generated successfully.")
 
         # Try to parse the response as JSON
