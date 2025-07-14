@@ -2,6 +2,7 @@ from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from langchain.prompts import ChatPromptTemplate
+import asyncio
 
 class Point(BaseModel):
     text: str = Field(description="The point text (Title Case).")
@@ -25,13 +26,13 @@ class PlateDetails(BaseModel):
     reasoning: str = Field(description="The reason behind choosing this particular template number.")
     plate_content: Optional[PlateContent] = Field(description="The simplified formatted content for the chosen template.")
 
-def query_with_pps_format(vectorstore, question: str, k: int = 5):
-    """Query vectorstore and return structured PPS format response"""
+async def query_with_pps_format(vectorstore, question: str, k: int = 5):
+    """Asynchronoulsy query vectorstore and return structured PPS format response"""
     llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
 
     print("Sending request...")
     # Retrieve relevant documents
-    docs = vectorstore.similarity_search(question)
+    docs = await asyncio.to_thread(lambda: vectorstore.similarity_search(question))
 
     if not docs:
         print("No docs")
@@ -43,6 +44,7 @@ def query_with_pps_format(vectorstore, question: str, k: int = 5):
     #-------------------------------------
     context = "\n\n".join([f"Option {i+1}: {doc.page_content}" for i, doc in enumerate(docs)])
     escaped_context = context.replace('{', '{{').replace('}', '}}')
+    
     prompt_template = f"""
     Use the following context to convert the transcript into PPS format:
 
@@ -63,7 +65,7 @@ def query_with_pps_format(vectorstore, question: str, k: int = 5):
     chain = prompt | structured_llm
 
     # Get response
-    response = chain.invoke({
+    response = await chain.ainvoke({
         "context": escaped_context,
         "question": question
     })
