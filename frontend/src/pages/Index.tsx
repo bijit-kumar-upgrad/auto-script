@@ -12,11 +12,12 @@ import VideoProcessing from "@/components/VideoProcessing";
 
 const Index = () => {
   const [file, setFile] = useState<File | null>(null);
+  const [docTitle, setDocTitle] = useState("");
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [isProcessingTranscript, setIsProcessingTranscript] = useState(false);
   const [isProcessingResend, setIsProcessingResend] = useState(false);
-  const [docTitle, setDocTitle] = useState("");
-  const [transcriptReady, setTranscriptReady] = useState(false); 
+  const [transcriptReady, setTranscriptReady] = useState(false);
+  const [resetStatus, setResetStatus] = useState(false); 
   const [options, setOptions] = useState<ProcessingOptionsType>({
     suggestFaceShots: 10,
     suggestGraphics: 20,
@@ -40,12 +41,17 @@ const Index = () => {
     setIsProcessingTranscript(false);
     setIsProcessingResend(false);
     setTranscriptReady(false);
+    setOptions({ suggestFaceShots: 10, suggestGraphics: 20, applyTemplates: 70 });
+    setResetStatus(true);
 
     console.log("Page reset");
-    // Optionally reset options to default if needed
-    // setOptions({ suggestFaceShots: 10, suggestGraphics: 20, applyTemplates: 70 });
     // If FileProcessing manages its own tableData, you may need to lift state up for a full reset
     // For now, rely on file/docTitle being cleared to hide table/download
+
+    // Reset the resetStatus to false after a short delay
+    setTimeout (() => {
+      setResetStatus(false);
+    })
   };
 
   // Handle video selection from VideoUpload component
@@ -63,8 +69,9 @@ const Index = () => {
           <h1 className="text-4xl font-bold text-center mb-2">Auto Script</h1>
           <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
             <div className="space-y-8">
-              <div className="grid grid-cols-1 gap-8">
-                <FileUpload onFileSelected={handleFileSelected} />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <FileUpload onFileSelected={handleFileSelected} resetStatus={resetStatus} />
+                <VideoUpload onVideoSelected={handleVideoSelected} />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <ProcessingOptions 
@@ -78,7 +85,7 @@ const Index = () => {
                   />
                 </div>
               </div>
-            </div>      
+            </div>
             <div className="flex-1 flex justify-center">
               <FileProcessing
                 file={file}
@@ -88,7 +95,7 @@ const Index = () => {
                 setIsProcessingTranscript={setIsProcessingTranscript}
                 isProcessingResend={isProcessingResend}
                 setIsProcessingResend={setIsProcessingResend}
-                handleReset={handleReset} // pass a signal to child for full reset
+                handleReset={handleReset}
               />
             </div>
           </div>

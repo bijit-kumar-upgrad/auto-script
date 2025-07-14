@@ -1,34 +1,30 @@
-import React, { useState, useRef, DragEvent } from 'react';
+import React, { useState, useRef, useEffect, DragEvent } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Upload } from 'lucide-react';
-import axios from 'axios';
-import { API_URL } from '@/ApiConfig';
 
 interface FileUploadProps {
   onFileSelected: (file: File) => void;
+  resetStatus: boolean;
 }
 
-const FileUpload: React.FC<FileUploadProps> = ({ onFileSelected }) => {
+const FileUpload: React.FC<FileUploadProps> = ({ onFileSelected, resetStatus }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Reset the file name when resetStatus changes to true
+  useEffect(() => {
+    if (resetStatus) {
+      setFileName(null); // Reset the file name
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ""; // Reset the file input field
+      }
+    }
+  }, [resetStatus]);
+
   const processFile = async (file: File) => {
     setFileName(file.name);
     onFileSelected(file);
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-      const response = await axios.post(`${API_URL}/api/upload`, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-    } catch (error) {
-      console.error('Error processing file:', error);
-    }
   };
 
   const handleClick = () => {
@@ -40,7 +36,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelected }) => {
       <CardContent className="pt-6">
         <h2 className="text-xl font-semibold mb-2">Upload Transcript</h2>
         <p className="text-sm text-gray-500 mb-4">
-          Drag and drop your .txt, .doc, or .docx file or click to select.
+          Drag and drop your .txt, or .docx file or click to select.
         </p>
 
         <div
@@ -68,7 +64,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelected }) => {
           onClick={handleClick}
         >
       
-          <div className="flex flex-col items-center justify-center h-20 p-4">
+          <div className="flex flex-col items-center justify-center h-40 p-4">
             <Upload className="h-12 w-12 text-gray-400 mb-4" />
             {fileName ? (
               <p className="text-sm text-center">{fileName}</p>
@@ -86,7 +82,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onFileSelected }) => {
                 processFile(files[0]);
               }
             }}
-            accept=".txt,.doc,.docx"
+            accept=".txt,.docx"
           />
         </div>
       </CardContent>

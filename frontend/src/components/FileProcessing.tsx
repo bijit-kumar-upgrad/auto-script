@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/components/ui/sonner";
 import axios from 'axios';
@@ -15,7 +15,7 @@ interface FileProcessingProps {
   setIsProcessingTranscript: React.Dispatch<React.SetStateAction<boolean>>;
   isProcessingResend: boolean;
   setIsProcessingResend: React.Dispatch<React.SetStateAction<boolean>>;
-  handleReset: any; // signal from parent to reset all state
+  handleReset: any;
 }
 
 const FileProcessing: React.FC<FileProcessingProps> = ({
@@ -105,6 +105,7 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
     try {
       const formData = new FormData();
       formData.append('modifiedRows', JSON.stringify(modifiedRows));
+      formData.append('mainResponseData', JSON.stringify(tableData));
 
       // Send the modified rows data to the backend for processing
       const response = await axios.post(`${API_URL}/api/update-templates`, formData, {
@@ -120,6 +121,7 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
       if(typeof updatedtableContent === "string"){
         try {
           updatedtableContent = JSON.parse(updatedtableContent);
+          console.log("Updated Table:", updatedtableContent);
         } catch (e) {
           console.error("Failed to parse content as JSON", e);
           updatedtableContent = [];
@@ -139,7 +141,7 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mt-10 mb-4">
+      <div className="flex items-center justify-between mt-4 mb-4 space-x-4">
         {/* Process Transcript button */}
         <div className="flex justify-center flex-grow">
           <Button 
@@ -148,70 +150,85 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
               handleProcessTranscript();
             }} 
             disabled={!file || isProcessingTranscript}
-            className="w-[260px] h-12 text-base"
+            className="w-full py-4 max-w-xl"
           >
             {isProcessingTranscript ? "Processing..." : "Process Transcript"}
           </Button>
         </div>
 
-        {/* Reset button */}
-        <div className="flex justify-end">
-          <button
-            type="button"
-            aria-label="Refresh"
-            className="h-12 px-4 flex items-center justify-center bg-red-500 text-white rounded-md"
-            onClick={() => {
-              setTableData([]);
-              setModifiedRows([]);
-              setUpdatedTableData([]);
-              handleReset(); // signal to parent to reset
-            }}
-            style={{
-              minWidth: '40px', 
-              width: 'auto', 
-              padding: '0',  // Remove unnecessary padding
-              fontSize: '28px' // Force icon size directly
-            }}
-          >
-            <RotateCcw size={28} />
-          </button>
-        </div>
+        {/* Download button for processed data */}
+        {/*<div className="flex justify-between mt-4 mb-4 space-x-4">*/}
+          {/* Download button for processed file*/}
+          <div className="flex justify-center">
+            <ProcessedFile 
+              title={
+                docTitle?.trim() !== ""
+                  ? `${docTitle}.docx`
+                  : file?.name
+                    ? `PPS-${file.name.split('.')[0]}.docx`
+                    : "PPS-Untitled.docx"
+              }
+              data={tableData}
+            />
+          </div>
+
+          {/* Reset button */}
+          <div className="flex justify-end">
+            <Button
+              aria-label="reset"
+              className="w-full py-4 max-w-xl"
+              onClick={() => {
+                setTableData([]);
+                setModifiedRows([]);
+                setUpdatedTableData([]);
+                handleReset();
+              }}
+              disabled = {!file}
+            >
+              <RotateCcw />
+            </Button>
+          </div>
+        {/*</div>*/}
       </div>
 
       {/* Render the table only after processing is successful */}
       {tableData.length > 0 && (
         <>
-          {/* Render the processed file download link */}
-          <ProcessedFile 
-            title={
-              docTitle?.trim() !== ""
-                ? `${docTitle}.docx`
-                : file?.name
-                  ? `PPS-${file.name.split('.')[0]}.docx`
-                  : "PPS-Untitled.docx"
-            }
-            data={tableData}
-          />
-
           {/* Render the table */}
           <ProcessedTable 
             data={tableData} 
             onModifiedRowsChange={(rows) => setModifiedRows(rows)}
           />
 
-          {/* Render the resend changes button */}
-          <div className="flex justify-center mt-10">
-            <Button 
-              onClick={() => {
-                console.log("Resend Changes button clicked");
-                console.log("Modified Rows:", modifiedRows);
-                handleResend();
-              }}
-              disabled={modifiedRows.length === 0 || isProcessingResend}
-              className="w-full max-w-xl py-6"
-            >
-              {isProcessingResend ? "Resending..." : "Resend Changes"}
-            </Button>
+          <div className="flex justify-center mt-8 mb-4 space-x-4">
+            {/* Render the resend changes button */}
+            <div className="flex justify-center">
+              <Button 
+                onClick={() => {
+                  console.log("Resend Changes button clicked");
+                  console.log("Modified Rows:", modifiedRows);
+                  handleResend();
+                }}
+                disabled={modifiedRows.length === 0 || isProcessingResend}
+                className="w-full max-w-xl py-4"
+              >
+                {isProcessingResend ? "Resending..." : "Resend Changes"}
+              </Button>
+            </div>
+
+            {/* Render the download button after processing */}
+            <div className="flex justify-center mx-4">
+              <ProcessedFile 
+                title={
+                  docTitle?.trim() !== ""
+                    ? `${docTitle}.docx`
+                    : file?.name
+                      ? `PPS-${file.name.split('.')[0]}.docx`
+                      : "PPS-Untitled.docx"
+                }
+                data={updatedTableData}
+              />
+            </div>
           </div>
         </>
       )}
@@ -223,18 +240,6 @@ const FileProcessing: React.FC<FileProcessingProps> = ({
           <ProcessedTable 
             data={updatedTableData} 
             onModifiedRowsChange={(rows) => setModifiedRows(rows)}
-          />
-
-          {/* Render the download button after processing */}
-          <ProcessedFile 
-            title={
-              docTitle?.trim() !== ""
-                ? `${docTitle}.docx`
-                : file?.name
-                  ? `PPS-${file.name.split('.')[0]}.docx`
-                  : "PPS-Untitled.docx"
-            }
-            data={updatedTableData}
           />
         </>
       )}

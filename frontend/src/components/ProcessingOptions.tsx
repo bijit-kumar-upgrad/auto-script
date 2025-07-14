@@ -35,7 +35,7 @@ const ProcessingOptions: React.FC<ProcessingOptionsProps> = ({
           Configure how the transcript is processed and formatted.
         </p>
         
-        <div className="space-y-4">
+        <div className="space-y-2">
           {/* FaceShots Slider */}
           <div className="flex items-center justify-between">
             <Label htmlFor="suggestFaceShots" className="w-1/4 text-left">Faceshots</Label>

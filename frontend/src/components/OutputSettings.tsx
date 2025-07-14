@@ -14,7 +14,7 @@ const OutputSettings: React.FC<OutputSettingsProps> = ({
 }) => {
   return (
     <Card className="bg-gray-50">
-      <CardContent className="pt-6">
+      <CardContent className="pt-10">
         <h2 className="text-xl font-semibold mb-2">Output File</h2>
         <p className="text-sm text-gray-500 mb-4">
           Configure the generated document.

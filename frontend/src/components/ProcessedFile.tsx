@@ -1,6 +1,5 @@
 import { Download } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   AlignmentType,
   Document,
@@ -51,18 +50,20 @@ const ProcessedFile: React.FC<ProcessedFileProps> = ({ title, data }) => {
     text: string,
     value?: string,
     boldValue = false,
-    bullet = false
+    italicsValue = false,
+    bullet = false,
+    bulletLevel? : number
   ) => 
     new Paragraph({
       children: value
       ? [
-          new TextRun({ text: text, font: FONT, size: FONT_SIZE }), // label
-          new TextRun({ text: value, font: FONT, size: FONT_SIZE, bold: boldValue }), // value
+          new TextRun({ text: text, font: FONT, size: FONT_SIZE, italics: italicsValue }), // label
+          new TextRun({ text: value, font: FONT, size: FONT_SIZE, bold: boldValue, italics: italicsValue }), // value
         ]
       : [
-          new TextRun({ text: text, font: FONT, size: FONT_SIZE, bold: boldValue }),
+          new TextRun({ text: text, font: FONT, size: FONT_SIZE, bold: boldValue, italics: italicsValue }),
         ],
-      bullet: bullet ? { level: 0 } : undefined, // Add bullet if needed
+      bullet: bullet ? { level: bulletLevel ?? 0 } : undefined, // Add bullet if needed
       alignment: AlignmentType.LEFT, // Align text to the left
     });
 
@@ -111,7 +112,7 @@ const ProcessedFile: React.FC<ProcessedFileProps> = ({ title, data }) => {
             ppsBlocks.push(styledText("Heading: ", content.heading, true));
 
           if (content.descriptiveText &&
-            ["11", "12", "13", "14", "15", "24", "25", "26", "28", "29"].includes(item.plate_details.template_number))
+            ["11", "12", "13", "14", "15", "24", "24B", "25", "26", "26B", "28", "28A", "28B", "29", "29A", "29B"].includes(item.plate_details.template_number))
             ppsBlocks.push(styledText("Description: ", content.descriptiveText, true));
 
           if (content.subheadings) {
@@ -123,13 +124,19 @@ const ProcessedFile: React.FC<ProcessedFileProps> = ({ title, data }) => {
               if (subheading.subheadingText){
                 ppsBlocks.push(styledText("Sub-Heading: ", subheading.subheadingText, true));
                 if (subheading.descriptiveText &&
-                   ["4","8","9","17","20","22","27"].includes(item.plate_details.template_number))
-                  ppsBlocks.push(styledText("Description: ", subheading.descriptiveText))
+                   ["4","8","9","17", "17B","20","20B","22","22B","27"].includes(item.plate_details.template_number))
+                  ppsBlocks.push(styledText("Description: ", subheading.descriptiveText, true))
+              }
+              if (subheading.icon){
+                ppsBlocks.push(styledText("Icon: ", subheading.icon, false, true));
+              }
+              if (subheading.image){
+                ppsBlocks.push(styledText("Image: ", subheading.image, false, true));
               }
               subheading.points?.forEach((point) => {
-                ppsBlocks.push(styledText(point.text || "", undefined, true, true));
+                ppsBlocks.push(styledText(point.text || "", undefined, true, false, true));
                 point.subpoints?.forEach((subpoint) => {
-                  ppsBlocks.push(styledText(subpoint, undefined, true, true));
+                  ppsBlocks.push(styledText(subpoint, undefined, true, false, true, 1));
                 });
               });
             });
@@ -173,26 +180,15 @@ const ProcessedFile: React.FC<ProcessedFileProps> = ({ title, data }) => {
   };
 
   return (
-    <Card className="max-w-md mx-auto mt-8 mb-8 bg-gray-50">
-      <CardContent className="p-6 flex items-center justify-between">
-        <div className="flex items-center">
-          <div className="h-14 w-14 flex-shrink-0">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="12" y="10" width="40" height="44" fill="white" stroke="#000" strokeWidth="2"/>
-              <rect x="20" y="38" width="24" height="12" fill="#EEE" stroke="#000" strokeWidth="1"/>
-              <text x="32" y="46" dominantBaseline="middle" textAnchor="middle" fontSize="8">DOC</text>
-            </svg>
-          </div>
-          <div className="ml-4">
-            <h3 className="font-medium">{title}</h3>
-          </div>
-        </div>
-        
-        <Button onClick={handleDownload} className="flex items-center gap-2">
-          <Download size={16} /> Download
-        </Button>
-      </CardContent>
-    </Card>
+    <div className='flex justify-center'>
+      <Button 
+        onClick={handleDownload}
+        disabled={data.length === 0} // Disable the button until data is present
+        className="w-full py-4 max-w-xl"
+      >
+        <Download size={16} /> Download
+      </Button>
+    </div>
   );
 };
 

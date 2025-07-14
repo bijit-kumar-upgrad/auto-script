@@ -108,13 +108,24 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsCha
         <tbody>
           {data.map((item, index) => {
             const content = item.plate_details?.plate_content || {};
-            const currentTemplate = modifiedData[index] || item.plate_details?.template_number;
+            // Set the currentTemplate as template_number, if missing use plate_type (faceshot/graphics) as currentTemplate
+            const currentTemplate = modifiedData[index] ??
+              (item.plate_details?.template_number || 
+              (item.plate_type && item.plate_type.charAt(0).toLocaleUpperCase() + item.plate_type.slice(1)));
             const isModified = modifiedData.hasOwnProperty(index);
 
-            // Logic to map faceshot/graphics plate types to their respective options
-            const templateOptions = item.plate_type === "faceshot" || item.plate_type === "graphics"
-              ? [item.plate_type === "faceshot" ? "Faceshot" : "Graphics"]
-              : plateOptions;
+            // Map faceshot/graphics plate types to their respective options
+            const templateOptions = item.plate_type === "faceshot"
+              ? [
+                  "Faceshot",
+                  ...plateOptions.filter(option => option !== "Faceshot")
+                ] // Remove only "Faceshot" when plate_type is "faceshot"
+              :  item.plate_type === "graphics"
+                ? [
+                    "Graphics",
+                    ...plateOptions.filter(option => option !== "Graphics")
+                 ] // Remove only "Graphics" when plate_type is "graphics"
+                : plateOptions; // Use all options if plate_type is not Faceshot or Graphics
 
             return (
               <tr 
@@ -134,7 +145,7 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsCha
                     >
                       {templateOptions.map((option) => (
                         <option key={option} value={option}>
-                          {option}
+                          {(option === "Faceshot" || option === "Graphics") ? option : `Template ${option}`}
                         </option>
                       ))}
                     </select>
