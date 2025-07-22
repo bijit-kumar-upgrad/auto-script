@@ -90,9 +90,9 @@ async def process_transcript(request: Request, file: UploadFile = File(...)):
             raise HTTPException(status_code=400, detail="Unsupported file format.")
 
         # Send the extracted text to the AI model and get the response
-        #ai_response = await get_ai_response(input_doc, processing_options_data)
+        ai_response = await get_ai_response(input_doc, processing_options_data)
 
-        #''' Dummy file for testing
+        ''' Dummy file for testing
         # Get the current directory of this script
         current_dir = os.path.dirname(__file__)
 
@@ -102,7 +102,7 @@ async def process_transcript(request: Request, file: UploadFile = File(...)):
             dummy_content = dummy_file.read()
 
         ai_response = dummy_content
-        #'''
+        '''
         #print("AI response generated successfully.")
 
         # Try to parse the response as JSON
@@ -158,8 +158,8 @@ async def upload_video(video: UploadFile = File(...)):
 
         print(f"Temp path: {audio_path} | {video_path}")
 
-        #os.remove(video_path)
-        #os.remove(audio_path)
+        os.remove(video_path)
+        os.remove(audio_path)
 
         if transcript:
             return {"message": "Video uploaded and processed successfully", "transcript": transcript}
