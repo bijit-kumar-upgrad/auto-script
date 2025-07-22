@@ -69,9 +69,8 @@ const Index = () => {
           <h1 className="text-4xl font-bold text-center mb-2">Auto Script</h1>
           <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
             <div className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1">
                 <FileUpload onFileSelected={handleFileSelected} resetStatus={resetStatus} />
-                <VideoUpload onVideoSelected={handleVideoSelected} />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <ProcessingOptions 

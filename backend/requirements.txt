@@ -4,7 +4,7 @@
 #docx
 
 # Core dependencies
-fastapi==0.115.12
+fastapi
 openai==1.79.0
 pillow==11.2.1
 pydantic==2.11.4
@@ -26,3 +26,4 @@ langchain-openai
 langchain-groq
 langchain-chroma
 posthog==2.4.2
+wihsper
