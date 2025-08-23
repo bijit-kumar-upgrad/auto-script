@@ -20,3 +20,4 @@ backend/app/simple_chat_completion.py
 
 # Ignore frontend files
 frontend/node_modules/
+.env
