@@ -92,6 +92,10 @@ async def process_transcript(request: Request, file: UploadFile = File(...)):
         # Send the extracted text to the AI model and get the response
         ai_response = await get_ai_response(input_doc, processing_options_data)
 
+        print(f"AI Response: {ai_response}")
+        # with open("ai_response.txt", "w", encoding="utf-8") as f:
+        #     f.write(ai_response)
+
         ''' Dummy file for testing
         # Get the current directory of this script
         current_dir = os.path.dirname(__file__)

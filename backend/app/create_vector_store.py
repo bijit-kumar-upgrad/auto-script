@@ -26,8 +26,9 @@ def create_vector_store():
         embedding_function=OpenAIEmbeddings(),
         client_settings=Settings(anonymized_telemetry=False)
     )
-    documents = load_documents_from_directory("./")
+    documents = load_documents_from_directory("app\data")
     #print(documents)
+    # print(f"Docs: {documents}")
     split_docs = document_splitter(documents)
     vectorstore.add_documents(split_docs)
 

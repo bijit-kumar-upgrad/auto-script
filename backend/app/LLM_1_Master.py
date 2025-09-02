@@ -47,7 +47,7 @@ class PPSMasterResponse(BaseModel):
 
 def master_response(transcript: str, faceshot_template_split) -> PPSMasterResponse:
     print("Generating master response...")
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=1.5)
     
     master_prompt = get_master_prompt(faceshot_template_split)
 
@@ -59,6 +59,7 @@ def master_response(transcript: str, faceshot_template_split) -> PPSMasterRespon
     master_response = master_llm.invoke(messages)
 
     return master_response
+
 
 
 def get_template_plates_summary(master_response: PPSMasterResponse) -> List[Dict[str, object]]:

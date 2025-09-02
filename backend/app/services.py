@@ -4,7 +4,7 @@ from langchain_core.documents import Document
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from typing_extensions import List, TypedDict
 from .LLM_1_Master import master_response,get_template_plates_summary, templateTypeEnum
-from .LLM_2_ppt import query_with_pps_format
+from .LLM_2_ppt import query_with_pps_format, regen_graphics_response
 from .create_vector_store import create_vector_store
 import json
 import asyncio
@@ -49,8 +49,9 @@ def add_plate_details(master_json,templates):
 
 # Pass template number and transcript to regenerate response
 # This function will return the json format of {plate_details} - refer LLM_2_ppt.py for the schema
-async def regenerate_response(template_number: str, transcript: str) -> str:
+async def regenerate_response(template_number: str,  transcript: str) -> str:
     vectorstore = create_vector_store()
+
     regen_prompt = f"Use template {template_number} for the transcript: {transcript}"
     template = await query_with_pps_format(vectorstore, regen_prompt)
     
@@ -77,13 +78,18 @@ async def regenerate_response_for_list(plates, existing_plates):
             # Don't send request to LLM if template is either Faceshot or Graphics
             if not (updated['template_number'] == "Faceshot" or updated['template_number'] == "Graphics"):
                 regenerated = await regenerate_response(updated['template_number'], updated['transcript'])
+                updated_plate['plate_details'] = regenerated
+            elif updated["template_number"]=="Graphics":
+                regenerated = regen_graphics_response(updated['transcript'])
+                updated_plate['plate_type'] = updated['template_number']
+                updated_plate['description'] = regenerated
             else:
                 # Update the plate_type
                 updated_plate['plate_type'] = updated['template_number']
 
-            #print("Updated plate_details: ", regenerated)
+            print("Updated plate_details: ", regenerated)
             # Preserve the original plate structure, updating plate_details
-            updated_plate['plate_details'] = regenerated
+            
                 
             new_plates.append(updated_plate)
         else:

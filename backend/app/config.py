@@ -12,6 +12,7 @@ API_ENDPOINT = os.getenv("API_ENDPOINT")
 
 # Ensure that the GITHUB_TOKEN is set
 if GITHUB_TOKEN is None:
+    print(GITHUB_TOKEN)
     raise ValueError("GITHUB_TOKEN environment variable not set.")
 
 # Ensure that the API_ENDPOINT is set
