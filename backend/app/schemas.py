@@ -8,7 +8,7 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
     messages: List[Message]
     temperature: float = 1.0
-    top_p: float = 1.0
+    top_p: float = 0.95
 
 class ChatResponse(BaseModel):
     response: str
