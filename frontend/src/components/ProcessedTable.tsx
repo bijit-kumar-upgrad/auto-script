@@ -98,7 +98,7 @@ const ProcessedTable: React.FC<ProcessedTableProps> = ({ data, onModifiedRowsCha
 
   return (
     <div className="overflow-x-auto mt-6">
-      <table className="min-w-full table-auto border-collapse border-4 border-black">
+      <table className="processed-table min-w-full table-auto border-collapse border-4 border-black">
         <thead>
           <tr className="bg-gray-100">
             <th className="px-6 py-3 border-4 border-black text-left w-1/2">Script</th>

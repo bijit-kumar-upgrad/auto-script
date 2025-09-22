@@ -186,7 +186,7 @@ const ProcessedFile: React.FC<ProcessedFileProps> = ({ title, data }) => {
         disabled={data.length === 0} // Disable the button until data is present
         className="w-full py-4 max-w-xl"
       >
-        <Download size={16} /> Download
+        <Download/>
       </Button>
     </div>
   );

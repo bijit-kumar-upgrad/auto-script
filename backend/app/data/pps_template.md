@@ -68,10 +68,10 @@ You are a video editor for an education tech organization that creates online st
 --
 
 
-### Template 1 - Four-Circle Process
+### Template 1 - OG Types (Few bullets)
 - **Layout**: Heading + 4 circular icons + sub-headings + descriptions with bullet points
-- **Purpose**: Brand communication aspects with detailed descriptions
-- **Material Required**: `[Heading, Subheadings[2-4], Icons, Points[max 2], Subpoints[max 2]]`
+- **Purpose**: This category is to be used when you want to show types. For e.g. Types of postures, types of blogs, etc. To showcase different types(2+) with each having a short description/explaination, maximum 3 points, or one short paragraph (wihtin 18 words)
+- **Material Required**: `[Heading, Subheadings[2-4+], Icons, Points[max 3]]`
 - **Visual Load**: Moderate | **Type**: OG
 
 
@@ -81,11 +81,9 @@ You are a video editor for an education tech organization that creates online st
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
 ● Heading can only be of two lines (not more than 32 letters)
 ● Points or sub-points can not exceed 3
-● Icons can be replaced only when using numbers or Short Forms, otherwise, icons cannot
-be replaced
+● Icons can be replaced only when using numbers or Short Forms, otherwise, icons cannot be replaced
 ● Must have atleast 2 Subheadings
 ● Cannot have images
-● If more than 4 types then the first point can slide out. The total can be split into two plates
 ● Need to provide icons
 **Sample Response:**
 ```json
@@ -99,8 +97,7 @@ be replaced
         "icon": "relevant icon description",
         "points": [
           {
-            "text": "First Point",
-            "subpoints": ["detail 1", "detail 2"]
+            "text": "First Point"
           }...
         ]
       },
@@ -110,64 +107,21 @@ be replaced
 }
 ```
 
-
 --
 
 
-### Template 1A - Horizontal Process Flow
-- **Layout**: Central heading + 4 horizontal circles with icons + sub-headings + descriptions
-- **Purpose**: Step-by-step process or flow visualization
-- **Material Required**: `[Heading, Subheadings[2-4], Icons, descriptiveText]`
-- **Visual Load**: Light | **Type**: OG
-
-
-- **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
-● Heading can only be of two lines (not more than 32 letters)
-● Points or sub-points can not exceed 3
-● Must have atleast 2 subheadings
-● Icons can be replaced only when using numbers or Short Forms, otherwise, icons cannot
-be replaced
-● Cannot have images
-● If more than 4 types then the first point can slide out. The total can be split into two plates
-● Need to provide icons
-**Sample Response:**
-```json
-{
-  "template_no": "1A",
-  "plate_details": {
-    "heading": "PROCESS FLOW HEADING",
-    "subheadings": [
-      {
-        "subheadingText": "Step One",
-        "icon": "step icon description",
-        "descriptiveText": "Brief description of this step"
-      }
-      ...
-    ]
-  }
-}
-```
-
-
---
-
-
-### Template 2 - Rectangular Process Steps
+### Template 2 - OG Types (Many Bullets)
 - **Layout**: Main heading + 4 rectangles with icons + sub-headings + numbered lists
-- **Purpose**: Process steps with detailed questions/points
-- **Material Required**: `[Heading, Subheadings[2-4], Icons, Points[2-4], Subpoints[max 2]]`
+- **Purpose**: This category is to be used when you want to show types. For e.g. Types of postures, types of blogs, etc. To showcase different types(2+) with each having a detailed description/explaination in multiples points
+- **Material Required**: `[Heading, Subheadings[2-4+], Icons, Points[3+]]`
 - **Visual Load**: Heavy | **Type**: OG
 - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS , Subheading - Title Case, Text/Description - Sentence case
 ● Heading can only be of two lines (not more than 32 characters)
-● Points or sub-points can be as many, the previous points will slide up
-● Icons can be replaced only when using numbers or Short Forms, otherwise, icons cannot
-be replaced
+● Points or sub-points can be as many
+● Icons can be replaced only when using numbers or Short Forms, otherwise, icons cannot be replaced
 ● Cannot have images
 ● Need to provide icons
 **Sample Response:**
@@ -182,8 +136,7 @@ be replaced
         "icon": "step icon",
         "points": [
           {
-            "text": "Main Point",
-            "subpoints": ["sub-detail 1", "sub-detail 2"]
+            "text": "Main Point"
           }
           ...
         ]
@@ -198,10 +151,10 @@ be replaced
 --
 
 
-### Template 4 - Circular Flow with Descriptions
+### Template 4 - OG Process (One line description)  
 - **Layout**: Heading + 4 circles with icons + sub-headings in boxes + descriptions
-- **Purpose**: Process flow with detailed stage descriptions
-- **Material Required**: `[Heading, Subheadings[2-4], Points[max 2], Subpoints[max 1]]`
+- **Purpose**: Process flow with short stage descriptions in either a short paragarph or within 2 bullet points
+- **Material Required**: `[Heading, Subheadings[2-4], Points[max 2]]`
 - **Visual Load**: Light | **Type**: OG
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
@@ -210,7 +163,6 @@ be replaced
 ● If pointers are being used, align it to the text.
 ● Max 2 lines of pointers allowed. Pointers should be in bullets.
 ● Heading can only be of two lines (not more than 20 letters)
-● If more than 4 types then the first type can slide out
 ● Cannot have images
 **Sample Response:**
 ```json
@@ -224,8 +176,7 @@ be replaced
         "descriptiveText": "Stage description",
         "points": [
           {
-            "text": "Key Point",
-            "subpoints": ["detail"]
+            "text": "Key Point"
           }
           ...
         ]
@@ -240,10 +191,10 @@ be replaced
 --
 
 
-### Template 5 - Themed Sections
+### Template 5 - OG Process (Few bullets)
 - **Layout**: Heading + 4 rectangular sections with titles + icons + sub-headings + bullet points
-- **Purpose**: Process components with thematic organization
-- **Material Required**: `[Heading, Subheadings[2-4], Icons, Points[max 1], Subpoints[max 1]]`
+- **Purpose**: Process flow with detailed stage descriptions, either in multiple points, or point with a subpoint
+- **Material Required**: `[Heading, Subheadings[2-4+], Icons, Points[max 1], Subpoints[max 1]]`
 - **Visual Load**: Moderate | **Type**: OG
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
@@ -251,10 +202,9 @@ be replaced
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
 ● Heading can only be of two lines (not more than 32 letters)
 ● Can be with or without icons, depending on the text
-● If more than 2 pointers then icons can be removed
+● If more than 2 pointers then icons can be omitted
 ● Pointers can also be faded to fit additional points.
 ● Cannot have images
-● If more than 4 types then the first type can slide out
 **Sample Response:**
 ```json
 {
@@ -283,18 +233,17 @@ be replaced
 --
 
 
-### Template 6 - Connected Analysis Sections
+### Template 6 - OG Process (Many Bullets)
 - **Layout**: Large heading + 4 connected sections + sub-headings + numbered points
-- **Purpose**: Structured analysis with progressive flow
-- **Material Required**: `[Heading, Subheadings[2-4], Points[2-5]]`
+- **Purpose**: Process flow with highly detailed stage descriptions, in multiple points
+- **Material Required**: `[Heading, Subheadings[2-4+], Points[2-5+]]`
 - **Visual Load**: Heavy | **Type**: OG
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
 ● Heading can only be of two lines (not more than 32 letters)
-● Points or sub-points can be as many, the previous points will slide up
-● If more than 4 types then the first type can slide out
+● Points or sub-points can be as many
 ● Icons and images cannot be used
 **Sample Response:**
 ```json
@@ -321,20 +270,17 @@ be replaced
 --
 
 
-### Template 7 - Comparison slide
+### Template 7 - OG Differentiation (Only text)
 - **Layout**: Main heading + left section  + right section + descriptions
-- **Purpose**: Balanced comparison of two items/entities
+- **Purpose**: Balanced comparison of two items/entities. This type is used when you want to show a differentiation/comparison For e.g. Advantages vs Disadvantages, Pros vs Cons, Do's vs Dont's, etc.
 - **Material Required**: `[Heading, Subheadings[2], Points[2-5]]`
 - **Visual Load**: Moderate | **Type**: OG
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS , Subheading - Title Case, Description -
-Sentence case
+● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
 ● Each point can be maximum 3 lines
 ● Cannot have images or icons
-● If more than 4 differences then the first point can slide out or 2. The total can be split into
-two plates
 **Sample Response:**
 ```json
 {
@@ -367,8 +313,8 @@ two plates
 --
 
 
-### Template 8 - Comparison with Case Study
-- **Layout**: Heading + left illustration with description + right case study with questions
+### Template 8 - OG Differentiation (Topic/Image)
+- **Layout**: Heading + left section + right section + descriptions (images included)
 - **Purpose**: Entity/concept comparison with visual support
 - **Material Required**: `[Heading, Subheadings[2], descriptiveTexts, images]`
 - **Visual Load**: Moderate | **Type**: OG
@@ -406,17 +352,16 @@ two plates
 --
 
 
-### Template 9 - Timeline Road
-- **Layout**: Optional heading + winding road + 5 year markers + sub-headings + descriptions
+### Template 9 - OG Timeline (1 line description) 
+- **Layout**: Optional heading + winding road + 5 timestamps (sub-headings) + descriptions
 - **Purpose**: Chronological timeline of events/milestones
-- **Material Required**: `[Heading, Subheadings[2-5], Points[max 1]]`
+- **Material Required**: `[Heading, Subheadings[2-5+], Points[max 1]]`
 - **Visual Load**: Moderate | **Type**: OG
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case.
-● No pointers can be added.
-● Text can be replaced with images
+● Heading is optional, Subheading should be the year/time of the event, Description to be one liner
 ● Can have more than 5 timestamps
 **Sample Response:**
 ```json
@@ -441,10 +386,10 @@ two plates
 --
 
 
-### Template 10 - Circular Timeline
-- **Layout**: Heading + 5 circular years (2017-2021) + sub-headings + description boxes with bullets
+### Template 10 - OG Timeline (Horizontal with bullets) 
+- **Layout**: Heading + 5 timestamps (sub-headings) + description boxes with bullets
 - **Purpose**: Multi-year action timeline with detailed explanations
-- **Material Required**: `[Heading, Subheadings[2-5], Points[2-4]]`
+- **Material Required**: `[Heading, Subheadings[2-5+], Points[2-4+]]`
 - **Visual Load**: Heavy | **Type**: OG
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
@@ -454,6 +399,7 @@ two plates
 ● Heading can’t exceed 32 letters
 ● Can have as many points
 ● Can have more than 5 timestamps
+● Subheadings to contain the year/time period and event/milestone
 **Sample Response:**
 ```json
 {
@@ -462,7 +408,7 @@ two plates
     "heading": "STRATEGIC TIMELINE",
     "subheadings": [
       {
-        "subheadingText": "2017",
+        "subheadingText": "2017 - Milestone",
         "points": [
           {"text": "Action 1", "subpoints": []},
           {"text": "Action 2", "subpoints": []}
@@ -491,7 +437,6 @@ two plates
 ● Images can’t be used
 ● Points can’t be more than two words
 ● Can have as many points
-● Each
 **Sample Response:**
 ```json
 {
@@ -507,7 +452,7 @@ two plates
 --
 
 
-### Template 12 - Line Graph
+### Template 12 - OG Line Graph
 - **Layout**: Bold heading + line graph + labeled axes + data points
 - **Purpose**: Trend visualization over time
 - **Material Required**: `[Heading, descriptiveText]`
@@ -518,8 +463,6 @@ two plates
 ● Heading - ALL CAPS, X-Y Axis Description - Sentence case
 ● Sub-points can appear on the right side
 ● Needs heading
-● If print Advertisement is used, use "Courtesy: Company name". For graphs ensure source
-is provided.
 **Sample Response:**
 ```json
 {
@@ -535,7 +478,7 @@ is provided.
 --
 
 
-### Template 13 - Vertical Bar Graph
+### Template 13 - OG Vertical Bar Graph
 - **Layout**: Heading + vertical bar graph + labeled axes + data points
 - **Purpose**: Comparative data visualization
 - **Material Required**: `[Heading, descriptiveText]`
@@ -546,8 +489,6 @@ is provided.
 ● Heading - ALL CAPS, X-Y Axis Description - Sentence case
 ● Sub-points can appear on the right side
 ● Needs heading
-● If print Advertisement is used, use "Courtesy: Company name". For graphs ensure source
-is provided.
 **Sample Response:**
 ```json
 {
@@ -574,8 +515,6 @@ is provided.
 ● Heading - ALL CAPS,
 ● Sub-points can appear on the right side
 ● Needs heading
-● If print Advertisement is used, use "Courtesy: Company name". For graphs ensure source
-is provided.
 **Sample Response:**
 ```json
 {
@@ -601,9 +540,7 @@ is provided.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS, X-Y Axis Description - Sentence case
 ● Sub-points can appear on the right side
-● Needs heading
-● If print Advertisement is used, use "Courtesy: Company name". For graphs ensure source
-is provided
+● Needs heading 
 **Sample Response:**
 ```json
 {
@@ -619,20 +556,19 @@ is provided
 --
 
 
-### Template 16 - Process Steps (Split-screen)
+### Template 16 - Types With Desctiption (Split-screen)
 - **Layout**: Heading + 4 rectangular sections + sub-headings + icons + descriptions + bullets
-- **Purpose**: Numbered process steps with clear guidance
-- **Material Required**: `[Heading, Subheadings[2-5], Icons, Points[max 2]]`
+- **Purpose**: To describe multiple information with descriptions
+- **Material Required**: `[Heading, Subheadings[2-4+], Icons, Points[max 3]]`
 - **Visual Load**: Moderate | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS, Subheading - Title Case, Description - Sentence case
-● Can be used without subheading - centre aligned
+● Can be used without description
 ● Can have pointers
 ● Description can not exceed 3 lines
 ● Cannot have images
-● If more than 4 types then the first type can slide out. The total can be split into two plates
 ● Need to provide icons or can use numbers
 **Sample Response:**
 ```json
@@ -659,50 +595,10 @@ is provided
 --
 
 
-### Template 16B - Process Steps (OG)
-- **Layout**: Heading + 4 rectangular sections + sub-headings + icons + descriptions + bullets
-- **Purpose**: Numbered process steps with clear guidance
-- **Material Required**: `[Heading, Subheadings[2-5], Icons, Points[max 2]]`
-- **Visual Load**: Heavy | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS, Subheading - Title Case, Description - Sentence case
-● Can be used without subheading - centre aligned
-● Can have pointers
-● Description can not exceed 3 lines
-● Cannot have images
-● If more than 4 types then the first type can slide out. The total can be split into two plates
-● Need to provide icons or can use numbers
-**Sample Response:**
-```json
-{
-  "template_no": "16B",
-  "plate_details": {
-    "heading": "STEP-BY-STEP PROCESS",
-    "subheadings": [
-      {
-        "subheadingText": "Step 1: Action",
-        "icon": "step icon description",
-        "points": [
-          {"text": "Key Point", "subpoints": []}
-          ...
-        ]
-      }
-      ...
-    ]
-  }
-}
-```
-
-
---
-
-
-### Template 17 - Ordered List Items (Split-screen)
+### Template 17 - Ordered List Items with Sub-bullets (Split-screen)
 - **Layout**: Main heading + numbered boxes + titles + descriptive text/images + bullets
 - **Purpose**: Detailed ordered list with elaboration (strengths, advantages, uses)
-- **Material Required**: `[Heading, Subheadings[2-5], descriptiveText, Images]`
+- **Material Required**: `[Heading, Subheadings[2-5+], descriptiveText, Images]`
 - **Visual Load**: Moderate | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
@@ -710,8 +606,7 @@ is provided
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
 ● Can’t be used if the heading exceeds two lines
 ● Can have images
-● If more than 5 types then the first type can slide out. The total can be split into two plates
-● Images can be used inside the sub - text box, or outside it, but only for a few seconds.
+● Images can be used inside the sub - text box, or outside it
 **Sample Response:**
 ```json
 {
@@ -730,34 +625,31 @@ is provided
 }
 ```
 
-
 --
 
 
-### Template 17B - Ordered List Items (OG)
-- **Layout**: Main heading + numbered boxes + titles + descriptive text/images + bullets
-- **Purpose**: Detailed ordered list with elaboration (strengths, advantages, uses)
-- **Material Required**: `[Heading, Subheadings[2-5], descriptiveText, Images]`
-- **Visual Load**: Heavy | **Type**: OG
+### Template 18 - FAQ Format (Split-screen)
+- **Layout**: Heading, Subheadings as Questions, Descriptions as Answers
+- **Purpose**: Frequently asked questions with clear answers, or set of questions being answered one after another
+- **Material Required**: `[Heading, Subheadings[2+], descriptiveText]`
+- **Visual Load**: Moderate | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
-● Can’t be used if the heading exceeds two lines
-● Can have images
-● If more than 5 types then the first type can slide out. The total can be split into two plates
-● Images can be used inside the sub - text box, or outside it, but only for a few seconds.
+● Heading - ALL CAPS - Questions - Sentence case
+● Can’t be used if the question exceeds two lines
+● Only use it when questions and answers both need to be shown. Else opt for Question box.
+● One question can have 2-3 answers. Box will extend to accommodate the answer.
 **Sample Response:**
 ```json
 {
-  "template_no": "17B",
+  "template_no": "18",
   "plate_details": {
-    "heading": "KEY STRENGTHS",
+    "heading": "FREQUENTLY ASKED QUESTIONS",
     "subheadings": [
       {
-        "subheadingText": "Strength 1",
-        "descriptiveText": "Detailed explanation of this strength",
-        "image": "supporting image description"
+        "subheadingText": "Question text?",
+        "descriptiveText": "Answer with explanation."
       }
       ...
     ]
@@ -769,80 +661,15 @@ is provided
 --
 
 
-### Template 18 - FAQ Format (Split-screen)
-- **Layout**: Heading + Q1, Q2 sections + answer boxes + descriptions
-- **Purpose**: Frequently asked questions with clear answers
-- **Material Required**: `[Heading, descriptiveText]`
-- **Visual Load**: Moderate | **Type**: Split-screen
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS - Questions - Sentence case
-
-
-● Can’t be used if the question exceeds two lines
-● If more than 3 questions then the first type can slide out. The total can be split into two
-plates
-● Only use it when questions and answers both need to be shown. Else opt for Question
-box.
-● One question can have 2-3 answers. Box will extend to accommodate the answer.
-**Sample Response:**
-```json
-{
-  "template_no": "18",
-  "plate_details": {
-    "heading": "FREQUENTLY ASKED QUESTIONS",
-    "descriptiveText": "Q1: Question text? A: Answer with explanation. Q2: Second question? A: Second answer with details."
-  }
-}
-```
-
-
---
-
-
-### Template 18B - FAQ Format (OG)
-- **Layout**: Heading + Q1, Q2 sections + answer boxes + descriptions
-- **Purpose**: Frequently asked questions with clear answers
-- **Material Required**: `[Heading, descriptiveText]`
-- **Visual Load**: Heavy | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS - Questions - Sentence case
-
-
-● Can’t be used if the question exceeds two lines
-● If more than 3 questions then the first type can slide out. The total can be split into two
-plates
-● Only use it when questions and answers both need to be shown. Else opt for Question
-box.
-● One question can have 2-3 answers. Box will extend to accommodate the answer.
-**Sample Response:**
-```json
-{
-  "template_no": "18B",
-  "plate_details": {
-    "heading": "FREQUENTLY ASKED QUESTIONS",
-    "descriptiveText": "Q1: Question text? A: Answer with explanation. Q2: Second question? A: Second answer with details."
-  }
-}
-```
-
-
---
-
-
-### Template 20 - Yin-Yang Concepts (Split-screen)
+### Template 20 - Yin-Yang Concepts - 2 Types (Split-screen)
 - **Layout**: Main heading + 2 yin-yang sections + sub-headings + descriptions
-- **Purpose**: Complementary business framework concepts
+- **Purpose**: Complementary business framework concepts, can only accomodate 2 types
 - **Material Required**: `[Heading, Subheadings[2], descriptiveText or Points[max 2]]`
 - **Visual Load**: Light | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
-● If only description/paragraph, centre aligned. If pointers, then left-aligned.
 ● Can’t be used if description exceeds five lines
 ● Heading can’t exceed 32 characters /two lines
 **Sample Response:**
@@ -869,56 +696,16 @@ box.
 --
 
 
-### Template 20B - Yin-Yang Concepts (OG)
-- **Layout**: Main heading + 2 yin-yang sections + sub-headings + descriptions
-- **Purpose**: Complementary business framework concepts
-- **Material Required**: `[Heading, Subheadings[2], descriptiveText or Points[max 2]]`
-- **Visual Load**: Light | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
-● If only description/paragraph, centre aligned. If pointers, then left-aligned.
-● Can’t be used if description exceeds five lines
-● Heading can’t exceed 32 characters /two lines
-**Sample Response:**
-```json
-{
-  "template_no": "20B",
-  "plate_details": {
-    "heading": "CORE FRAMEWORK",
-    "subheadings": [
-      {
-        "subheadingText": "Concept A",
-        "descriptiveText": "First concept explanation"
-      },
-      {
-        "subheadingText": "Concept B",
-        "descriptiveText": "Second concept explanation"
-      }
-    ]
-  }
-}
-```
-
-
---
-
-
-### Template 21 - Three Interconnected Circles (Split-screen)
+### Template 21 - 3 Types (Split-screen)
 - **Layout**: Central heading + 3 interconnected circles + sub-headings + icons
-- **Purpose**: Topic relationships and comparisons
-
-
+- **Purpose**: Topic relationships and comparisons between 3 types
 - **Material Required**: `[Heading, Subheadings[3], Icons]`
 - **Visual Load**: Light | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
-
-
-● Heading should be max. Two words
+● Heading should be maximum two words
 ● Icons can be replaced with a short description(not recommended though)
 ● Subheading inside the circle can be max 2-3 words.
 ● If there are subpointers, use OG
@@ -946,51 +733,13 @@ box.
 }
 ```
 
-
---
-
-
-### Template 21B - Journey Connections (OG)
-- **Layout**: Central heading + interconnected circles + sub-headings + icons + descriptions
-- **Purpose**: Company/Consumer/Channel journey connections
-- **Material Required**: `[Heading, Subheadings[5], Icons, descriptiveText]`
-- **Visual Load**: Light | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
-
-
-● Heading should be max. Two words
-● Icons can be replaced with a short description(not recommended though)
-● Subheading inside the circle can be max 2-3 words.
-● If there are subpointers, use OG
-**Sample Response:**
-```json
-{
-  "template_no": "21B",
-  "plate_details": {
-    "heading": "JOURNEY MAPPING",
-    "subheadings": [
-      {
-        "subheadingText": "Company Journey",
-        "icon": "company icon",
-        "descriptiveText": "Company journey description"
-      }
-      ...
-    ]
-  }
-}
-```
-
-
 --
 
 
 ### Template 22 - Five Hexagon Flow (Split-screen)
 - **Layout**: Main heading + 5 connected hexagons + sub-headings + icons + description boxes
-- **Purpose**: 5 characteristics/strengths/advantages in unordered fashion
-- **Material Required**: `[Heading, Subheadings[5], Icons, descriptiveText]`
+- **Purpose**: Multiple characteristics/strengths/advantages in unordered fashion with icons
+- **Material Required**: `[Heading, Subheadings[5+], Icons, descriptiveText]`
 - **Visual Load**: Moderate | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
@@ -998,7 +747,6 @@ box.
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
 ● Heading should be max. two words
 ● Icons cannot be omitted, but can be replaced with numbers.
-● Can be a maximum of five at a time else first two will slide up
 ● Word count should not be exceeded (Max 10 words)
 **Sample Response:**
 ```json
@@ -1009,7 +757,7 @@ box.
     "subheadings": [
       {
         "subheadingText": "Characteristic 1",
-        "icon": "relevant icon",
+        "icon": "relevant icon description",
         "descriptiveText": "Detailed description"
       }
       ...
@@ -1022,55 +770,20 @@ box.
 --
 
 
-### Template 22B - Five Hexagon Flow (OG)
-- **Layout**: Main heading + 5 connected hexagons + sub-headings + icons
-- **Purpose**: 5 characteristics/strengths/advantages in unordered fashion
-- **Material Required**: `[Heading, Subheadings[5], Icons]`
-- **Visual Load**: Moderate | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
-● Heading should be max. two words
-● Icons cannot be omitted, but can be replaced with numbers.
-● Can be a maximum of five at a time else first two will slide up
-● Word count should not be exceeded (Max 10 words)
-**Sample Response:**
-```json
-{
-  "template_no": "22B",
-  "plate_details": {
-    "heading": "KEY CHARACTERISTICS",
-    "subheadings": [
-      {
-        "subheadingText": "Characteristic 1",
-        "icon": "relevant icon"
-      }
-      ...
-    ]
-  }
-}
-```
-
-
---
-
-
-### Template 23 - Sequential Process (Split-screen)
-- **Layout**: Heading + 5 sequential circles + icons/numbers + sub-headings + descriptions
-- **Purpose**: Step-by-step process flow with detailed elements
-- **Material Required**: `[Heading, Subheadings[5], Icons]`
+### Template 23 - Process/Types with 1 line (Split-screen)
+- **Layout**: Heading + icons/numbers + multiple sub-headings
+- **Purpose**: To talk about process or types with 1 line, or for multiple single line pointers such as overviews, or summaries
+- **Material Required**: `[Heading, Subheadings[3+], Icons]`
 - **Visual Load**: Light | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS
+● Subheading : 
 ● Incase of short words then - Title Case (As given in reference above)
-● Incase of longer sentences - Sentence case (Example - The importance and significance of
-promotion)
+● Incase of longer sentences - Sentence case (Example - The importance and significance of promotion)
 ● Heading should be two lines max.
 ● Icons can be replaced with numbers
-● Can be a maximum of five at a time else first will slide up
 ● Best used for showing a process/flow
 **Sample Response:**
 ```json
@@ -1093,42 +806,6 @@ promotion)
 --
 
 
-### Template 23B - Sequential Process (OG)
-- **Layout**: Heading + 5 sequential circles + icons/numbers + sub-headings + descriptions
-- **Purpose**: Step-by-step process flow with detailed elements
-- **Material Required**: `[Heading, Subheadings[5], Icons]`
-- **Visual Load**: Light | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Heading - ALL CAPS
-● Incase of short words then - Title Case (As given in reference above)
-● Incase of longer sentences - Sentence case (Example - The importance and significance of
-promotion)
-● Heading should be two lines max.
-● Icons can be replaced with numbers
-● Can be a maximum of five at a time else first will slide up
-● Best used for showing a process/flow
-**Sample Response:**
-```json
-{
-  "template_no": "23B",
-  "plate_details": {
-    "heading": "SEQUENTIAL PROCESS",
-    "subheadings": [
-      {
-        "subheadingText": "Step 1",
-        "icon": "step icon or number"
-      }
-      ...
-    ]
-  }
-}
-```
-
-
---
-
 
 ### Template 24 - Percentage Statistic (Glassbox)
 - **Layout**: Circular progress indicator + percentage + descriptive text beside
@@ -1139,8 +816,6 @@ promotion)
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Description - Header - ALL CAPS, Description/text - Sentence case
-
-
 ● Heading is allowed only when using the Split Screen version (it is optional).
 ● Highlight words need to be given in PPS
 **Sample Response:**
@@ -1149,34 +824,6 @@ promotion)
   "template_no": "24",
   "plate_details": {
     "descriptiveText": "85% of customers report satisfaction improvement"
-  }
-}
-```
-
-
---
-
-
-### Template 24B - Percentage Statistic (Split-screen)
-- **Layout**: Heading + circular progress indicator + percentage + descriptive text below
-- **Purpose**: Present a statistic with context
-- **Material Required**: `[Heading, descriptiveText]`
-- **Visual Load**: Light | **Type**: Split-screen
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Description - Header - ALL CAPS, Description/text - Sentence case
-
-
-● Heading is allowed only when using the Split Screen version (it is optional).
-● Highlight words need to be given in PPS
-**Sample Response:**
-```json
-{
-  "template_no": "24B",
-  "plate_details": {
-    "heading": "CUSTOMER SATISFACTION",
-    "descriptiveText": "85% improvement in customer satisfaction scores"
   }
 }
 ```
@@ -1211,7 +858,7 @@ promotion)
 
 ### Template 26 - Question Prompt (Glassbox)
 - **Layout**: Question in rectangular box + question mark graphic
-- **Purpose**: Engage viewers with discussion questions
+- **Purpose**: Engage viewers with discussion questions, could be used for rhetoric ones also
 - **Material Required**: `[descriptiveText]`
 - **Visual Load**: Light | **Type**: Glassbox
 - - **Guidelines**:
@@ -1233,33 +880,10 @@ promotion)
 --
 
 
-### Template 26B - Question Prompt (OG)
-- **Layout**: Question in rectangular box + question mark graphic
-- **Purpose**: Engage viewers with discussion questions
-- **Material Required**: `[descriptiveText]`
-- **Visual Load**: Light | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Description - Sentence case
-● Question can have Maximum 4 lines
-**Sample Response:**
-```json
-{
-  "template_no": "26B",
-  "plate_details": {
-    "descriptiveText": "What factors contribute to effective team communication?"
-  }
-}
-```
-
-
---
-
 
 ### Template 27 - Definition Explanation (OG)
 - **Layout**: Heading + optional sub-heading + main descriptive text + optional image
-- **Purpose**: Detailed definition or term explanation
+- **Purpose**: Detailed definition or term explanation, with images succicnt and brief description
 - **Material Required**: `[Heading, Subheading[1], descriptiveText]`
 - **Visual Load**: Moderate | **Type**: OG
 - - **Guidelines**:
@@ -1267,8 +891,7 @@ promotion)
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Heading - ALL CAPS , Subheading - Title Case, Description - Sentence case
 ● Subheading is optional.
-● Highlight words need to be given in PPS
-● The vector on the right should be given in PPS
+● Highlight words need to be highlighted
 ● Pointers can be used, but not recommended.
 **Sample Response:**
 ```json
@@ -1291,19 +914,17 @@ promotion)
 --
 
 
-### Template 28 - Motivational Quote (Glassbox)
+### Template 28 - Short Motivational Quote (Glassbox)
 - **Layout**: Large quotation box + quote + author name in colored box
-- **Purpose**: Present inspirational quotes alongside speaker
+- **Purpose**: Present short inspirational quotes alongside speaker
 - **Material Required**: `[descriptiveText]`
 - **Visual Load**: Light | **Type**: Glassbox
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Description - Sentence case
-● Keywords should be in black and bold.
 ● Don't use full stop at the end
-● Highlight words need to be given in PPS
-● Image of the (Quote) speaker cannot be added
+● Highlight words need to be given
 **Sample Response:**
 ```json
 {
@@ -1318,19 +939,17 @@ promotion)
 --
 
 
-### Template 28A - Motivational Quote (Split-screen)
+### Template 28A - Moderately Long Motivational Quote (Split-screen)
 - **Layout**: Large quotation box + quote + author name in colored box
 - **Purpose**: Present inspirational quotes alongside speaker
 - **Material Required**: `[descriptiveText]`
-- **Visual Load**: Light | **Type**: Split-screen
+- **Visual Load**: Moderate | **Type**: Split-screen
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Description - Sentence case
-● Keywords should be in black and bold.
 ● Don't use full stop at the end
-● Highlight words need to be given in PPS
-● Image of the (Quote) speaker cannot be added
+● Highlight words need to be given
 **Sample Response:**
 ```json
 {
@@ -1345,19 +964,17 @@ promotion)
 --
 
 
-### Template 28B - Motivational Quote (OG)
+### Template 28B - Long Motivational Quote (OG)
 - **Layout**: Large quotation box + quote + author name in colored box
-- **Purpose**: Present inspirational quotes alongside speaker
+- **Purpose**: Present long/full inspirational quotes alongside speaker
 - **Material Required**: `[descriptiveText]`
 - **Visual Load**: Moderate | **Type**: OG
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Description - Sentence case
-● Keywords should be in black and bold.
 ● Don't use full stop at the end
-● Highlight words need to be given in PPS
-● Image of the (Quote) speaker cannot be added
+● Highlight words need to be given
 **Sample Response:**
 ```json
 {
@@ -1382,7 +999,7 @@ promotion)
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Description - Sentence case
 ● Does not allow heading.
-● Highlight words need to be given in PPS
+● Highlight words need to be given
 ● No fullstops
 ● The takeaway can not exceed 14-18 words. (Can exceed when using OG version)
 **Sample Response:**
@@ -1409,7 +1026,7 @@ promotion)
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Description - Sentence case
 ● Does not allow heading.
-● Highlight words need to be given in PPS
+● Highlight words need to be given
 ● No fullstops
 ● The takeaway can not exceed 14-18 words. (Can exceed when using OG version)
 **Sample Response:**
@@ -1426,47 +1043,20 @@ promotion)
 --
 
 
-### Template 29B - Takeaway/Definition (OG)
-- **Layout**: Emphasized box with focused text
-- **Purpose**: Convey concise definition or key takeaway
-- **Material Required**: `[descriptiveText]`
-- **Visual Load**: Light | **Type**: OG
-- - **Guidelines**:
-● Don't rephrase the transcript. Fit the transcript to the template as it is.
-● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
-● Description - Sentence case
-● Does not allow heading.
-● Highlight words need to be given in PPS
-● No fullstops
-● The takeaway can not exceed 14-18 words. (Can exceed when using OG version)
-**Sample Response:**
-```json
-{
-  "template_no": "29B",
-  "plate_details": {
-    "descriptiveText": "Effective leadership requires both emotional intelligence and strategic thinking"
-  }
-}
-```
-
-
---
-
-
 ## Final Quality Checklist
 
 
 Before submitting your PPS:
 
 
-1. ✅ **Formatting**: Proper Title Case and Sentence Case usage
-2. ✅ **Content**: No plates with single points
-3. ✅ **Completeness**: Script blocks contain full text, not truncated
-4. ✅ **Bold Text**: All final PPS output text is in **bold**
-5. ✅ **Template Match**: Appropriate template selection for content type
-6. ✅ **Engagement**: Speaker plates interwoven every 3-4 OG templates
-7. ✅ **Visual Balance**: Templates chosen to avoid excessive white space
-
+1. **Formatting**: Proper Title Case and Sentence Case usage
+2. **Content**: No plates with single points
+3. **Completeness**: Script blocks contain full text, not truncated
+4. **Bold Text**: All final PPS output text is in **bold**
+5. **Template Match**: Appropriate template selection for content type
+6. **Engagement**: Speaker plates interwoven every 3-4 OG templates
+7. **Visual Balance**: Templates chosen to avoid excessive white space
+8. **Descriptive Text/Pointers**: The pointers and descriptive text should try to follow the order of the words in the transcript. It should be succint and brief, since audio is also heard, only impactful and important words to be shown 
 
 ## JSON Response Format
 

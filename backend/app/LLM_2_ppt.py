@@ -32,11 +32,11 @@ class PlateDetails(BaseModel):
 
 async def query_with_pps_format(vectorstore, transcript: str, k: int = 5):
     """Asynchronoulsy query vectorstore and return structured PPS format response"""
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=1)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=1.0, max_tokens=2000)
     
     print("Sending request...")
     # Retrieve relevant documents
-    docs = await asyncio.to_thread(lambda: vectorstore.similarity_search(transcript))
+    docs = await asyncio.to_thread(lambda: vectorstore.similarity_search(transcript, k=k))
 
     if not docs:
         print("No docs")
