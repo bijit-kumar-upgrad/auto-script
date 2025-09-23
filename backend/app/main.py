@@ -9,8 +9,15 @@ from .get_video_transcript import get_video_transcript
 from pydantic import BaseModel
 import os
 import traceback
+from .vectorstore_manager import init_vectorstore
 
 app = FastAPI()
+
+@app.on_event("startup")
+async def startup_event():
+    # Initialise vectorstore once when the app starts
+    init_vectorstore()
+    print("Vectorstore initialized and ready to use.")
 
 class ResponseMessage(BaseModel):
     message: str

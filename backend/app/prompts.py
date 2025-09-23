@@ -37,6 +37,7 @@ You will be given a transcript and you are to design a slide for this transcript
 The details of the templates will be given to you along with the transcript.
 Create pointers from the trasncript (similar to notes of the transcript)
 Choose a template and fill the text to match the template format.
+The text for the template should be succicnt and brief, and follow the order of words.
 
 CRITICAL OUTPUT FORMATTING RULES-
 Adhere to the format of the template chosen, do not provide additional fields

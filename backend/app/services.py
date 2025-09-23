@@ -5,13 +5,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from typing_extensions import List, TypedDict
 from .LLM_1_Master import master_response,get_template_plates_summary, templateTypeEnum
 from .LLM_2_ppt import query_with_pps_format, regen_graphics_response
-from .create_vector_store import create_vector_store
+from .vectorstore_manager import init_vectorstore
 import json
 import asyncio
 
 # Function to get the AI response
 async def get_ai_response(input_script, processing_options) -> str:
-    vectorstore = create_vector_store()
+    vectorstore = init_vectorstore()
 
     master_response_var = master_response(input_script, processing_options)
     template_plates = get_template_plates_summary(master_response_var)
@@ -50,7 +50,7 @@ def add_plate_details(master_json,templates):
 # Pass template number and transcript to regenerate response
 # This function will return the json format of {plate_details} - refer LLM_2_ppt.py for the schema
 async def regenerate_response(template_number: str,  transcript: str) -> str:
-    vectorstore = create_vector_store()
+    vectorstore = init_vectorstore()
 
     regen_prompt = f"Use template {template_number} for the transcript: {transcript}"
     template = await query_with_pps_format(vectorstore, regen_prompt)
@@ -88,9 +88,8 @@ async def regenerate_response_for_list(plates, existing_plates):
                 updated_plate['plate_type'] = updated['template_number']
 
             print("Updated plate_details: ", regenerated)
-            # Preserve the original plate structure, updating plate_details
-            
-                
+
+            # Preserve the original plate structure, updating plate_details    
             new_plates.append(updated_plate)
         else:
             new_plates.append(plate)

@@ -858,13 +858,14 @@ You are a video editor for an education tech organization that creates online st
 
 ### Template 26 - Question Prompt (Glassbox)
 - **Layout**: Question in rectangular box + question mark graphic
-- **Purpose**: Engage viewers with discussion questions, could be used for rhetoric ones also
+- **Purpose**: Engage viewers with discussion questions
 - **Material Required**: `[descriptiveText]`
 - **Visual Load**: Light | **Type**: Glassbox
 - - **Guidelines**:
 ● Don't rephrase the transcript. Fit the transcript to the template as it is.
 ● Do not choose a template based on the last few words. The entire transcript should be visible in the template chosen
 ● Description - Sentence case
+● To be used only when the question in the transcript
 ● Question can have Maximum 4 lines
 **Sample Response:**
 ```json

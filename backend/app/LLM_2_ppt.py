@@ -32,7 +32,7 @@ class PlateDetails(BaseModel):
 
 async def query_with_pps_format(vectorstore, transcript: str, k: int = 5):
     """Asynchronoulsy query vectorstore and return structured PPS format response"""
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=1.0, max_tokens=2000)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.5, max_tokens=2000)
     
     print("Sending request...")
     # Retrieve relevant documents
@@ -48,16 +48,6 @@ async def query_with_pps_format(vectorstore, transcript: str, k: int = 5):
     #-------------------------------------
     context = "\n\n".join([f"Option {i+1}: {doc.page_content}" for i, doc in enumerate(docs)])
     escaped_context = context.replace('{', '{{').replace('}', '}}')
-    
-    prompt_template = f"""
-    Use one of the following templates to convert the transcript into PPS format:
-
-    Templates: {escaped_context}
-
-    Transcript to convert: {transcript}
-
-    Please follow the PPS creation guidelines and return the appropriate template structure.
-    """
     system_prompt = SystemMessagePromptTemplate.from_template(SYSTEM_INSTRUCTION)
     human_prompt = HumanMessagePromptTemplate.from_template(f"""
     {SYSTEM_INSTRUCTION}
